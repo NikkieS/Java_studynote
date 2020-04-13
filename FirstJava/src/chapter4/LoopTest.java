@@ -27,12 +27,12 @@ public class LoopTest {
 		
 		//do-while¹®
 		System.out.println("------dowhile¹®------");
-		int j=0;
+		i=0;
 		do {
-			j++;
-			System.out.println(j);
+			i++;
+			System.out.println(i);
 		} 
-		while(j<5);
+		while(i<5);
 	}
 
 }
