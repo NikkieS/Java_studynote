@@ -12,15 +12,6 @@ public class CastingOperation {
 		System.out.println("문자 A의 유니코드 값: " + num1);
 		System.out.println("문자 Z의 유니코드 값: " + num2);
 		
-		char ch3 = 'Z';
-		int num3 = ch3;
-		System.out.println(num3);
-		
-		int i = 100;
-		char ch = 'A';
-		
-		System.out.println(true + "");
-		
 	}
 
 }
