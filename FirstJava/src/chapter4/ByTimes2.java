@@ -3,12 +3,12 @@ package chapter4;
 public class ByTimes2 {
 
 	public static void main(String[] args) {
-		// ±¸±¸´Ü
-		// ´Ü * 1~9= °á°ú : 2*1=2
-	
+		// êµ¬êµ¬ë‹¨
+		// ë‹¨ * 1~9= ê²°ê³¼ : 2*1=2
+			
 		int i=2;
 		while(i<10) {
-			System.out.println(i+"´Ü");
+			System.out.println(i+"ë‹¨");
 			System.out.println("----------");
 			
 			int j=1;

@@ -3,7 +3,7 @@ package chapter4;
 public class WhileBreak {
 
 	public static void main(String[] args) {
-		// 1~10 ±îÁöÀÇ ¼ıÀÚ¸¦ 3ÀÇ ¹è¼ö¸¦ Á¦¿ÜÇÏ°í Ãâ·Â
+		// 1~10 ê¹Œì§€ì˜ ìˆ«ìë¥¼ 3ì˜ ë°°ìˆ˜ë¥¼ ì œì™¸í•˜ê³  ì¶œë ¥
 		
 		for(int i=1; i<=10; i++) {
 			if(!(i%3==0)) {
@@ -11,14 +11,14 @@ public class WhileBreak {
 			}
 		}
 		
-		// 1~10 ±îÁöÀÇ ¼ıÀÚ¸¦ 3ÀÇ ¹è¼ö¸¸ Ãâ·Â
+		// 1~10 ê¹Œì§€ì˜ ìˆ«ìë¥¼ 3ì˜ ë°°ìˆ˜ë§Œ ì¶œë ¥
 		for(int i=1; i<=10; i++) {
 			if(i%3==0) {
 				System.out.println(i);
 			}
 		}
 		
-		// 1~10 ±îÁöÀÇ ¼ıÀÚ¸¦ 3ÀÇ ¹è¼ö¸¦ Á¦¿ÜÇÏ°í Ãâ·Â (continue)
+		// 1~10 ê¹Œì§€ì˜ ìˆ«ìë¥¼ 3ì˜ ë°°ìˆ˜ë¥¼ ì œì™¸í•˜ê³  ì¶œë ¥ (continue)
 		for(int i=1; i<=10; i++) {
 			if (i%3==0) {
 				continue;

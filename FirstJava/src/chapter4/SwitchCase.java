@@ -5,9 +5,9 @@ public class SwitchCase {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
-		int menuNum = 1;
+		int menuNum = 3;
 		
-		// ´ëÀÔµÇ´Â ¼ıÀÚ ÄÉÀÌ½ººÎÅÍ ½ÇÇà
+		// ëŒ€ì…ë˜ëŠ” ìˆ«ì ì¼€ì´ìŠ¤ë¶€í„° ì‹¤í–‰
 		switch(menuNum) {
 		case 1:
 			System.out.println("1. Simle Jave");
@@ -18,7 +18,7 @@ public class SwitchCase {
 		case 3:
 			System.out.println("3. Fantastic Java");
 			break;
-		// ÄÉÀÌ½ºµé¿¡ ÀûÇÕÇÏÁö ¾ÊÀ»¶§ 
+		// ì¼€ì´ìŠ¤ë“¤ì— ì í•©í•˜ì§€ ì•Šì„ë•Œ 
 		default:
 			System.out.println("d. The best programming language");
 		}

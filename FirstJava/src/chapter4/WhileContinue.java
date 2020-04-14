@@ -3,8 +3,6 @@ package chapter4;
 public class WhileContinue {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		int i=0;
 		int sum=0;
 		
@@ -17,8 +15,8 @@ public class WhileContinue {
 			sum += i;
 		}
 		
-		System.out.println("¸¶Áö¸· °ª : "+ i);
-		System.out.println("ÇÕÀÌ 100ÀÌ ³Ñ¾Æ°£ °ª : " + sum);
+		System.out.println("ë§ˆì§€ë§‰ ê°’ : "+ i);
+		System.out.println("í•©ì´ 100ì´ ë„˜ì•„ê°„ ê°’ : " + sum);
 	}
 
 }

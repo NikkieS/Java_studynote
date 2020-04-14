@@ -3,19 +3,16 @@ package chapter4;
 public class CondOp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		int num1 = 50, num2 = 100;
 		int big, diff;
 		
-		// Å«¼ö ±¸ÇÏ±â
+		// í°ìˆ˜ êµ¬í•˜ê¸°
 		big = (num1 > num2)? num1:num2;
 		
-		//µÎ ¼öÀÇ Â÷ÀÌ
+		//ë‘ ìˆ˜ì˜ ì°¨ì´
 		diff = (num1 > num2)? num1-num2:num2-num1;
 		
 		System.out.println(diff);
-	
 	}
 
 }

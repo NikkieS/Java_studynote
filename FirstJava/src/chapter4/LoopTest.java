@@ -3,7 +3,7 @@ package chapter4;
 public class LoopTest {
 
 	public static void main(String[] args) {
-		// 5¹ø Ãâ·Â
+		// 5ë²ˆ ì¶œë ¥
 		System.out.println(5);
 		System.out.println(4);
 		System.out.println(3);
@@ -11,28 +11,27 @@ public class LoopTest {
 		System.out.println(1);
 		
 		
-		//for¹®
-		System.out.println("--------for¹®--------");
+		//forë¬¸
+		System.out.println("--------forë¬¸--------");
 		for (int i=5; i>=1; i--) {
 			System.out.println(i);
 		}
 		
-		//while¹®
-		System.out.println("-------while¹®-------");
+		//whileë¬¸
+		System.out.println("-------whileë¬¸-------");
 		int i = 1;
 		while(i<=5) {
 			System.out.println(i);
 			i++;
 		}
 		
-		//do-while¹®
-		System.out.println("------dowhile¹®------");
+		//do-whileë¬¸
+		System.out.println("------dowhileë¬¸------");
 		i=0;
 		do {
 			i++;
 			System.out.println(i);
-		} 
-		while(i<5);
+		} while(i<5);
 	}
 
 }

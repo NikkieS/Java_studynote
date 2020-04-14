@@ -3,27 +3,25 @@ package chapter4;
 public class IEBasic {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		if(true) {
-			System.out.println("true ÀÏ¶§ Ãâ·Â");
+			System.out.println("true ì¼ë•Œ ì¶œë ¥");
 		}
 		if(false) {
-			System.out.println("false ÀÏ¶§ Ãâ·Â");
+			System.out.println("false ì¼ë•Œ ì¶œë ¥");
 		}
 		else {
-			System.out.println("else ÀÏ¶§ Ãâ·Â");
+			System.out.println("else ì¼ë•Œ ì¶œë ¥");
 		}
 		
-		// È¦¼ö Â¦¼ö ÆÇº°
+		// í™€ìˆ˜ ì§ìˆ˜ íŒë³„
 		int num = 10;
 		
 		if(num > 0)
-			System.out.println("numÀº 0º¸´Ù Å©´Ù.");
+			System.out.println("numì€ 0ë³´ë‹¤ í¬ë‹¤.");
 		if((num % 2) == 0)
-			System.out.println("numÀº Â¦¼ö");
+			System.out.println("numì€ ì§ìˆ˜");
 		else
-			System.out.println("numÀº È¦¼ö");
+			System.out.println("numì€ í™€ìˆ˜");
 	}
 
 }

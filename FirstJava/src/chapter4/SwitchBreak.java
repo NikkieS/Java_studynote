@@ -3,11 +3,9 @@ package chapter4;
 public class SwitchBreak {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		int menuNum = 4;
 		
-		// ´ëÀÔµÇ´Â ¼ıÀÚ ÄÉÀÌ½ººÎÅÍ ½ÇÇà
+		// ëŒ€ì…ë˜ëŠ” ìˆ«ì ì¼€ì´ìŠ¤ë¶€í„° ì‹¤í–‰
 		switch(menuNum) {
 		case 1:
 			System.out.println("1. Simle Jave");
@@ -15,7 +13,7 @@ public class SwitchBreak {
 			System.out.println("2. Funny Java");
 		case 3:
 			System.out.println("3. Fantastic Java");
-		// ÄÉÀÌ½ºµé¿¡ ÀûÇÕÇÏÁö ¾ÊÀ»¶§ 
+		// ì¼€ì´ìŠ¤ë“¤ì— ì í•©í•˜ì§€ ì•Šì„ë•Œ 
 		default:
 			System.out.println("d. The best programming language");
 		}
