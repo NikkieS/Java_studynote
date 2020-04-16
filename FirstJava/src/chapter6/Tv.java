@@ -1,4 +1,4 @@
-package tv;
+package chapter6;
 
 public class Tv {
 	

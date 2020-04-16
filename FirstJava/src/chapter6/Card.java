@@ -1,4 +1,4 @@
-package Card;
+package chapter6;
 
 public class Card {
 	
@@ -8,5 +8,13 @@ public class Card {
 	String kind;
 	int number;
 	
+	Card(){
+		
+	}
+	
+	Card(String type, int num){
+		kind=type;
+		number=num;
+	}
 
 }
