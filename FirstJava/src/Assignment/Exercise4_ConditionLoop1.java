@@ -192,11 +192,9 @@ public class Exercise4_ConditionLoop1 {
 		System.out.println("----------------------------------------");
 		
 		// 13.구구단의 짝수 단(2,4,8)만 출력하는 프로그램 작성. 단, 2단은 2x2까지, 4단은 4x4까지, 8단은 8x8 까지 출력	
-		for (int num13=2; num13<=8; num13++) {
-			if(num13==2 || num13==4 || num13==8) {
-				for(int j=1; j<=num13; j++) {
-					System.out.println(num13+" x "+j+" = "+num13*j);
-				}
+		for (int num13=2; num13<=8; num13*=2) {
+			for(int j=1; j<=num13; j++) {
+				System.out.println(num13+" x "+j+" = "+num13*j);
 			}
 		}
 		System.out.println("----------------------------------------");
