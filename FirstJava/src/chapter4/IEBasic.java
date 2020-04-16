@@ -3,16 +3,6 @@ package chapter4;
 public class IEBasic {
 
 	public static void main(String[] args) {
-		if(true) {
-			System.out.println("true 일때 출력");
-		}
-		if(false) {
-			System.out.println("false 일때 출력");
-		}
-		else {
-			System.out.println("else 일때 출력");
-		}
-		
 		// 홀수 짝수 판별
 		int num = 10;
 		

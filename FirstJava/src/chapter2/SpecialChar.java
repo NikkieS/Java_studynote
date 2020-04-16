@@ -2,10 +2,10 @@ package chapter2;
 
 public class SpecialChar {
 	public static void main(String[] args) {
-		char single = '\''; // \' µû¿ÈÇ¥ Ãâ·Â, single = '''; ¿Í °°ÀÌ ÇÒ ¼ö ¾ø´Ù
-		String dblQuote = "\"Hello\""; // \" °ãµû¿ÈÇ¥¸¦ Ãâ·Â
+		char single = '\''; // \' ë”°ì˜´í‘œ ì¶œë ¥, single = '''; ì™€ ê°™ì´ í•  ìˆ˜ ì—†ë‹¤
+		String dblQuote = "\"Hello\""; // \" ê²¹ë”°ì˜´í‘œë¥¼ ì¶œë ¥
 		
-		String root = "c:\\"; // \\ ¿ª½½·¡½¬ Ãâ·Â
+		String root = "c:\\"; // \\ ì—­ìŠ¬ë˜ì‰¬ ì¶œë ¥
 		System.out.println(single);
 		System.out.println(dblQuote);
 		System.out.println(root);

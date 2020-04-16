@@ -3,12 +3,11 @@ package chapter2;
 public class CharToCode {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		char ch = 'A'; // char ch = '\u0041' ·Î ¹Ù²ã ½áµµ °°´Ù
+		char ch = 'A'; // char ch = '\u0041' ë¡œ ë°”ê¿” ì¨ë„ ê°™ë‹¤
 		int code = ch;
 		
-		System.out.println("¹®ÀÚ¿­ Ãâ·Â : " + ch);
-		System.out.println("¹®ÀÚ¿­ AÀÇ À¯´ÏÄÚµå Ãâ·Â : " + code);
+		System.out.println("ë¬¸ìì—´ ì¶œë ¥ : " + ch);
+		System.out.println("ë¬¸ìì—´ Aì˜ ìœ ë‹ˆì½”ë“œ ì¶œë ¥ : " + code);
 		
 		int code1 = 65; //int = 4byte
 		char ch1 = (char)code1; //char = 2byte

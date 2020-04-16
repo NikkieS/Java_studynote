@@ -3,17 +3,15 @@ package chapter3;
 public class DivOp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		int num1 = 7;
 		int num2 = 3;
 		
-		// Á¤¼öÀÇ ³ª´©±â ¿¬»ê
-		System.out.println("Á¤¼öÀÇ ³ª´°¼À: " + num1/num2);
+		// ì •ìˆ˜ì˜ ë‚˜ëˆ„ê¸° ì—°ì‚°
+		System.out.println("ì •ìˆ˜ì˜ ë‚˜ëˆ—ì…ˆ: " + num1/num2);
 		
-		// ½Ç¼öÀÇ ³ª´©±â ¿¬»ê
-		System.out.println("½Ç¼öÇü ³ª´°¼À: " + 7f/3f); // ¸®ÅÍ·²·Î¸¸ °¡´ÉÇÏ´Ù
-		System.out.println("½Ç¼öÀÇ ³ª´°¼À: " + (float)num1/num2);	//num2´Â num1°ú ¿¬»ê½Ã floatÈ­ ÇØÁØ´Ù		
-		
+		// ì‹¤ìˆ˜ì˜ ë‚˜ëˆ„ê¸° ì—°ì‚°
+		System.out.println("ì‹¤ìˆ˜í˜• ë‚˜ëˆ—ì…ˆ: " + 7f/3f); // ë¦¬í„°ëŸ´ë¡œë§Œ ê°€ëŠ¥í•˜ë‹¤
+		System.out.println("ì‹¤ìˆ˜ì˜ ë‚˜ëˆ—ì…ˆ: " + (float)num1/num2);	//num2ëŠ” num1ê³¼ ì—°ì‚°ì‹œ floatí™” í•´ì¤€ë‹¤					
 	}
 
 }

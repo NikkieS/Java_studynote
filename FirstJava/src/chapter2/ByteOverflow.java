@@ -4,10 +4,10 @@ public class ByteOverflow {
 
 	public static void main(String[] args) {
 		
-		byte b = 0; //byteÇü º¯¼ö b¸¦ ¼±¾ğÇÏ°í 0À¸·Î ÃÊ±âÈ­
+		byte b = 0; //byteí˜• ë³€ìˆ˜ bë¥¼ ì„ ì–¸í•˜ê³  0ìœ¼ë¡œ ì´ˆê¸°í™”
 		int i = 0;
 		
-		// (½ÃÀÛÁ¡; ³¡³ª´ÂÁ¡; Áõ°¡À²)
+		// (ì‹œì‘ì ; ëë‚˜ëŠ”ì ; ì¦ê°€ìœ¨)
 		for (int x= 0; x <= 270; x++) { 
 			System.out.print(b++);
 			System.out.print('\t');

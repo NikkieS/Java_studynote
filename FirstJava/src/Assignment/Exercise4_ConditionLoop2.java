@@ -1,8 +1,8 @@
-package chapter4;
+package Assignment;
 
-public class Exercise4_2 {
+public class Exercise4_ConditionLoop2 {
+
 	public static void main(String[] args) {
-		// 새로운 주석
 		// 1.다음의 문장들을 조건식으로 표현하라.
 		//int형 변수 x가 10보다 크고 20보다 작을 때 true인 조건식
 		int x1=20;
@@ -264,6 +264,7 @@ public class Exercise4_2 {
 		  else System.out.println( number + "는 회문수가 아닙니다.");
 		  
 		  System.out.println("----------------------------------------");
-		 
+
 	}
+
 }

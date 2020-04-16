@@ -5,15 +5,15 @@ public class SCE { // SCE : Short Circuit Evaluation
 		int num1 = 0, num2 = 0;
 		boolean result;
 		
-		result = (num1 += 10)<0 && (num2+=10)>0;	//num1 < 0¿¡¼­ falseÀÓÀ¸·Î ´ÙÀ½ ºñ±³¿¬»êÀº ÇÏÁö ¾ÊÀ½
+		result = (num1 += 10)<0 && (num2+=10)>0;	//num1 < 0ì—ì„œ falseì„ìœ¼ë¡œ ë‹¤ìŒ ë¹„êµì—°ì‚°ì€ í•˜ì§€ ì•ŠìŒ
 		System.out.println("result = " + result);
 		System.out.println("num1 = " + num1 + ", num2 = " + num2);
 		
-		result = (num1+=10)>0 || (num2+=10)>0;	// num1 > 0ÀÌ trueÀÓÀ¸·Î ´ÙÀ½ ºñ±³¿¬»êÀº ÇÏÁö ¾ÊÀ½
+		result = (num1+=10)>0 || (num2+=10)>0;	// num1 > 0ì´ trueì„ìœ¼ë¡œ ë‹¤ìŒ ë¹„êµì—°ì‚°ì€ í•˜ì§€ ì•ŠìŒ
 		System.out.println("result = " + result);
 		System.out.println("num1 = " + num1 + ", num2 = " + num2);
 		
-		// ÀÌÇ× ¿¬»êÀÚÀÇ Æ¯Â¡ : ÇÇ¿¬»êÀÚ Áß Ç¥Çö¹üÀ§°¡ Å« Å¸ÀÔÀ¸·Î Çüº¯È¯ ÇÑ´Ù.
+		// ì´í•­ ì—°ì‚°ìì˜ íŠ¹ì§• : í”¼ì—°ì‚°ì ì¤‘ í‘œí˜„ë²”ìœ„ê°€ í° íƒ€ì…ìœ¼ë¡œ í˜•ë³€í™˜ í•œë‹¤.
 		byte a = 10;
 		byte b = 20;
 		

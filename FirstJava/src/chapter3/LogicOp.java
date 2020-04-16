@@ -3,33 +3,31 @@ package chapter3;
 public class LogicOp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		int num1 = 10, num2 = 20;
 		// int num1 = 10;
 		// int num2 = 20;
 		
-		// num1ÀÌ num2º¸´Ù Å«Áö È®ÀÎ
-		// Å« °æ¿ì -> true, ÀÛÀº °æ¿ì -> false
+		// num1ì´ num2ë³´ë‹¤ í°ì§€ í™•ì¸
+		// í° ê²½ìš° -> true, ì‘ì€ ê²½ìš° -> false
 		boolean check1 = num1 > num2;
 		
 		if (check1) {
-			System.out.println("num1ÀÇ °ªÀÌ num2ÀÇ °ªº¸´Ù Å®´Ï´Ù.");
+			System.out.println("num1ì˜ ê°’ì´ num2ì˜ ê°’ë³´ë‹¤ í½ë‹ˆë‹¤.");
 		}
 		else {
-			System.out.println("num1ÀÇ °ªÀÌ num2ÀÇ °ªº¸´Ù ÀÛ½À´Ï´Ù.");
+			System.out.println("num1ì˜ ê°’ì´ num2ì˜ ê°’ë³´ë‹¤ ì‘ìŠµë‹ˆë‹¤.");
 		}
 		
 		boolean result1 = num1 == 10 && num2 == 20;
 		boolean result2 = num1 <= 12 || num2 >= 30;
 		
-		System.out.println("num1==10 ±×¸®°í num2==20: " + result1);
-		System.out.println("num1<=12 ¶Ç´Â num2 >=30: " + result2);
+		System.out.println("num1==10 ê·¸ë¦¬ê³  num2==20: " + result1);
+		System.out.println("num1<=12 ë˜ëŠ” num2 >=30: " + result2);
 		
 		if ((num1!=num2))
-			System.out.println("num1°ú num2´Â °°Áö ¾Ê´Ù.");
+			System.out.println("num1ê³¼ num2ëŠ” ê°™ì§€ ì•Šë‹¤.");
 		else
-			System.out.println("num1°ú num2´Â °°´Ù.");
+			System.out.println("num1ê³¼ num2ëŠ” ê°™ë‹¤.");
 		
 		System.out.println("-------------------------");
 		
@@ -40,7 +38,7 @@ public class LogicOp {
 		boolean result = age > 19 && gender == 'w' && mCheck;
 		
 		if (result) {
-			System.out.println("¸Ş½ÃÁö¸¦ º¸³À´Ï´Ù.");
+			System.out.println("ë©”ì‹œì§€ë¥¼ ë³´ëƒ…ë‹ˆë‹¤.");
 		}
 	}
 

@@ -3,33 +3,31 @@ package chapter3;
 public class ArithOp {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 		int num1;
 		int num2;
 		
 		num1 = 10;
 		num2 = 20;
 		
-		// 2. µ¡¼À ¿¬»ê -> °á°ú¸¦ Ãâ·ÂÇÏÀÚ
+		// 2. ë§ì…ˆ ì—°ì‚° -> ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì
 		int result = num1 + num2;
-		System.out.println("µ¡¼À °á°ú: " + result);
+		System.out.println("ë§ì…ˆ ê²°ê³¼: " + result);
 		
-		// 3. »¬¼À ¿¬»ê -> °á°ú¸¦ Ãâ·ÂÇÏÀÚ
+		// 3. ëº„ì…ˆ ì—°ì‚° -> ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì
 		result = num2 - num1;
-		System.out.println("»¬¼À °á°ú: " + result);
+		System.out.println("ëº„ì…ˆ ê²°ê³¼: " + result);
 		
-		// 4. °ö¼À ¿¬»ê -> °á°ú¸¦ Ãâ·ÂÇÏÀÚ
+		// 4. ê³±ì…ˆ ì—°ì‚° -> ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì
 		result = num1 * num2;
-		System.out.println("°ö¼À °á°ú: " + result);
+		System.out.println("ê³±ì…ˆ ê²°ê³¼: " + result);
 		
-		// 5. ³ª´°¼À ¿¬»ê -> °á°ú¸¦ Ãâ·ÂÇÏÀÚ
+		// 5. ë‚˜ëˆ—ì…ˆ ì—°ì‚° -> ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì
 		result = num2 / num1;
-		System.out.println("³ª´°¼À °á°ú: " + result);
+		System.out.println("ë‚˜ëˆ—ì…ˆ ê²°ê³¼: " + result);
 		
-		// 6. ³ª¸ÓÁö ¿¬»ê -> °á°ú¸¦ Ãâ·ÂÇÏÀÚ
+		// 6. ë‚˜ë¨¸ì§€ ì—°ì‚° -> ê²°ê³¼ë¥¼ ì¶œë ¥í•˜ì
 		result = num1 % num2;
-		System.out.println("³ª¸ÓÁö °á°ú: " + result);
+		System.out.println("ë‚˜ë¨¸ì§€ ê²°ê³¼: " + result);
 		
 	}
 

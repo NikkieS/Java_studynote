@@ -6,11 +6,11 @@ public class CastingOperation {
 		char ch1 = 'A';
 		char ch2 = 'z';
 		
-		int num1 = ch1;		//Çüº¯È¯
-		int num2 = (int)ch2;	//¸í½ÃÀû Çüº¯È¯
+		int num1 = ch1;		//í˜•ë³€í™˜
+		int num2 = (int)ch2;	//ëª…ì‹œì  í˜•ë³€í™˜
 		
-		System.out.println("¹®ÀÚ AÀÇ À¯´ÏÄÚµå °ª: " + num1);
-		System.out.println("¹®ÀÚ ZÀÇ À¯´ÏÄÚµå °ª: " + num2);
+		System.out.println("ë¬¸ì Aì˜ ìœ ë‹ˆì½”ë“œ ê°’: " + num1);
+		System.out.println("ë¬¸ì Zì˜ ìœ ë‹ˆì½”ë“œ ê°’: " + num2);
 		
 	}
 
