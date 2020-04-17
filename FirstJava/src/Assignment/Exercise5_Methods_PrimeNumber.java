@@ -1,7 +1,7 @@
-package Exercise5_Methods;
+package Assignment;
 //문제4. 전달되는 값이 소수(prime number)인지 아닌지를 판단하여, 소수인경우 true를, 소수가 아닌 경우 false를 반환하는 메서드를 정의하고, 
 //이를 이용해서 1이상 100 이하의 소수를 전부 출력할 수 있도록 main 메서드를 정의하자.
-public class PrimeNumber {
+public class Exercise5_Methods_PrimeNumber {
 	boolean prime(int a) {
 		boolean result = true;
 		int count = 0;
@@ -16,5 +16,17 @@ public class PrimeNumber {
 		}
 		
 		return result;
+	}
+	
+	public static void main(String[] args) {
+		System.out.println("------------4번 문제------------");
+		
+		Exercise5_Methods_PrimeNumber numP = new Exercise5_Methods_PrimeNumber();
+		
+		for(int num=1; num<=100; num++) {
+			if (numP.prime(num)==true) {
+				System.out.println(num+"은 소수 입니다.");
+			}
+		}
 	}
 }
