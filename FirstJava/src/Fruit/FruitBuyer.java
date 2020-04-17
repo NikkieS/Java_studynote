@@ -1,11 +1,30 @@
 package Fruit;
 
+/*작성자 : 송가람
+수정일 : 2020.04.17
+수정내용 : 생성자로 변수 초기화, 현재 데이터 출력 메소드 생성 (showResult())
+*/
+
 public class FruitBuyer {
 	// 속성: 변수
 	// 보유한 나의 돈
 	// 사과의 개수
-	int myMoney = 10000;
-	int numOfApple = 0;
+	//int myMoney = 10000;
+	//int numOfApple = 0;
+	
+	int myMoney;
+	int numOfApple;
+	
+	//생성자
+	FruitBuyer(){
+		myMoney = 5000;
+		numOfApple=0;
+	}
+	
+	FruitBuyer(int money, int num){
+		myMoney = money;
+		numOfApple = num;
+	}
 	
 	// 구매 기능 : 매소드
 	// 1. seller 받기
@@ -22,5 +41,9 @@ public class FruitBuyer {
 		
 		numOfApple += num;
 		myMoney -= money;
+	}
+	void showSaleResult() {
+		System.out.println("사과 개수: "+numOfApple);
+		System.out.println("현재 잔액: "+myMoney);
 	}
 }

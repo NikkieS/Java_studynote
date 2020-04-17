@@ -33,8 +33,10 @@ public class Exercise6_Class_Game {
 		
 		child1.setMarble(15);
 		child2.setMarble(9);
-		System.out.println("어린이1이 보유한 구슬의 개수: "+child1.marbles);
-		System.out.println("어린이2가 보유한 구슬의 개수: "+child2.marbles);
+		System.out.print("어린이1가 ");
+		child1.showData();
+		System.out.print("어린이2가 ");
+		child2.showData();
 		System.out.println("-------------------------------------");
 		
 		// 1차 게임
@@ -47,7 +49,9 @@ public class Exercise6_Class_Game {
 		System.out.println("-------------------------------------");
 		
 		// 게임 결과 출력
-		System.out.println("어린이1가 보유한 구슬의 개수: "+child1.marbles);
-		System.out.println("어린이2가 보유한 구슬의 개수: "+child2.marbles);
+		System.out.print("어린이1가 ");
+		child1.showData();
+		System.out.print("어린이2가 ");
+		child2.showData();
 	}
 }
