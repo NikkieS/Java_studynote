@@ -13,6 +13,10 @@ public class AccessArray {
 		int sum = arr[0] + arr[1] + arr[2];
 		System.out.printf("%d, %d, %d의 합은 %d입니다.",arr[0], arr[1], arr[2], sum);
 		
-	
+		int[][] arr2=new int[3][2];
+		arr2[2][0]=0;
+		arr2[2][1]=4;
+		
+		System.out.println(arr2[2][0]);
 	}
 }
