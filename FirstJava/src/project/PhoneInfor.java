@@ -14,15 +14,15 @@ public class PhoneInfor {
 	// 2. 전화번호 정보 view (list: 전화번호, 이름, 분류)
 	// 3. 전화번호 검색
 	// 4. 전화번호 삭제
-	String name;		//이름
-	String phoneNumber;	//전화번호
-	String birthday;	//생년월일
+	private String name;		//이름
+	private String phoneNumber;	//전화번호
+	private String birthday;	//생년월일
 	
 	PhoneInfor(){
 	}
 	
 	PhoneInfor(String name, String num){
-		this(name,num, "입력된 값이 없습니다.");
+		this(name,num, "No data entered.");
 	}
 	
 	PhoneInfor(String name, String num, String bday){
@@ -32,8 +32,14 @@ public class PhoneInfor {
 	}
 	
 	void show() {
-		System.out.println("이름 : "+name+", 전화번호 : "+phoneNumber+", 생년월일 : "+birthday);
+		System.out.println("Name : "+name+", Phone number : "+phoneNumber+", Birthday : "+birthday);
 	}
+	
+	// name 속성값과 전달받은 문자열을 비교해서 반환
+	boolean check(String name) {
+		return this.name.equals(name);
+	}
+	
 	public static void main(String[] args) {
 		// data1
 		PhoneInfor data1 = new PhoneInfor("철수","000","0420");

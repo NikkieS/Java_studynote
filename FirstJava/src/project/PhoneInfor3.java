@@ -21,30 +21,49 @@ public class PhoneInfor3 {
 		}
 	}
 	
-	// 검색 메소드
-	void search(String name) {
+	int numOfIndex(String name) {
+		int idx = -1;
 		for(int i=0; i<100; i++) {
 			if(arr[i][0].equals(name)) {
-				System.out.println("Name: "+arr[i][0]+", Phone number : "+arr[i][1]+", Birthday : "+arr[i][2]);
+				idx = i;
 				break;
 			}
-			else	// 전화번호부에 없는 이름으로 검색했을 때
-				System.out.println(name+" is not in your contacts.");
 		}
-		System.out.println(" ");
+		return idx;
+	}
+	
+	// 검색 메소드
+	void search(String name) {
+		int idx = numOfIndex(name);
+		if(idx<0) {
+			System.out.println(" ");
+			System.out.println(name+" is not in your contacts.");
+		}
+		else
+			System.out.println(" ");
+			System.out.println("Name: "+arr[idx][0]+", Phone number : "+arr[idx][1]+", Birthday : "+arr[idx][2]);
+//		for(int i=0; i<100; i++) {
+//			if(arr[i][0].equals(name)) {
+//	            System.out.println("Name: "+arr[i][0]+", Phone number : "+arr[i][1]+", Birthday : "+arr[i][2]);
+//	            break;
+//            }
+//	      // 전화번호부에 없는 이름으로 검색했을 때
+//			else
+//				System.out.println(name+" is not in your contacts.");
+//		}
 	}
 	
 	// 삭제 메소드
 	void delete(String name) {
-		for(int i=0; i<100; i++) {
+		for(int i=0; arr[i][0]!=null; i++) {
 			if(arr[i][0].equals(name)) {
 				// 시작점: 이름이 들어가있는 인덱스, 끝점: 인덱스의 정보가 비어있지 않을때 까지
 				for(int j=i; arr[j][0]!=null; j++) {
 					arr[j][0]=arr[j+1][0];	//오른쪽을 왼쪽으로 당겨준다
 					arr[j][1]=arr[j+1][1];
 					arr[j][2]=arr[j+1][2];
-				}break;
-			}
+				}
+				break;}
 			// 전화번호부에 없는 이름으로 검색했을 때
 			else
 				System.out.println(name+" is not in your contacts.");
@@ -53,16 +72,14 @@ public class PhoneInfor3 {
 	
 	// 전체 출력 메소드
 	void view() {
-		for (String[] e : arr) {
+		for (int i=0; i<100; i++) {
 			// 전화번호부가 비어있지 않을때 출력
-			if(e[0]!=null) {
-				System.out.println(e[0]+", "+e[1]+", "+e[2]);
-				break;
+			if(arr[i][0]!=null) {
+				System.out.println("Name: "+arr[i][0]+", Phone number : "+arr[i][1]+", Birthday : "+arr[i][2]);
 			}
 			// 전화번호부가 비어있을 때
-			else {
+			else if(arr[0][0]==null){
 				System.out.println("Your contact is empty.");
-				break;
 			}
 		}
 	}
