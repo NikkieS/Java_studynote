@@ -27,10 +27,22 @@ public class StringTest {
 		}
 		System.out.println();
 		
+		/* 역순 StringBuffer Class사용 */
+		StringBuffer str4b= new StringBuffer("ABCDEFGHIJKLMN");
+		System.out.println(str4b.reverse());
+		
 		//문제 2. 다음 형태로 주민번호를 담고 있는 String 인스턴스를 하나 생성. String str = “990929-1010123”
 		//이 문자열을 이용하여 중간에 삽입된 – 를 뺀 String 인스턴스를 생성.
 		String str5 = "990929-1010123";
 		
+		/* StringBuffer 사용 */
+		StringBuffer str5b=new StringBuffer("990929-1010123");
+		System.out.println(str5b.deleteCharAt(str5b.indexOf("-")));
+		
+		/* String Class 사용 */
+		System.out.println(str5.replace("-", ""));
+		
+		/* StringBuilder 사용 */
 		StringBuilder strBuf = new StringBuilder();
 		
 		for(int i=0; i<6; i++) {

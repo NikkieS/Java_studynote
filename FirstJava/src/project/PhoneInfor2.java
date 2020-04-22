@@ -2,17 +2,21 @@ package project;
 
 import java.util.Scanner;
 
+/*작성자 : 송가람
+수정일 : 2020.04.22
+수정내용 : 전화번호 관리 프로그램 (이름, 전화번호, 생년월일)
+*/
+
 public class PhoneInfor2 {
-	Scanner sc = new Scanner(System.in);
 	
 	String name;		//이름
 	String phoneNumber;	//전화번호
 	String birthday;	//생년월일
 	
+	private static Scanner sc;
+	
 	PhoneInfor2(String name, String num){
-		this.name = name;
-		this.phoneNumber = num;
-		this.birthday = "";
+		this(name,num, "입력된 값이 없습니다.");
 	}
 	
 	PhoneInfor2(String name, String num, String bday){
@@ -25,7 +29,7 @@ public class PhoneInfor2 {
 		System.out.println("이름 : "+name+", 전화번호 : "+phoneNumber+", 생년월일 : "+birthday);
 	}
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		sc = new Scanner(System.in);
 		
 		while (true) {
 			System.out.println("이름을 입력해주세요.");

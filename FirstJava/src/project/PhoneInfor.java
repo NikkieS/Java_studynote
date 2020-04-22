@@ -3,6 +3,7 @@ package project;
 작성일 : 2020.04.20
 작성내용 : 전화번호 관리 프로그램 (이름, 전화번호, 생년월일)
 */
+
 public class PhoneInfor {
 	/*
 	 * PhoneInfor 라는 이름의 클래스를 정의해 보자. 클래스는 다음의 데이터들의 문자열 형태로 저장이 가능 해야 하며, 저장된 데이터의
@@ -18,13 +19,10 @@ public class PhoneInfor {
 	String birthday;	//생년월일
 	
 	PhoneInfor(){
-		
 	}
 	
 	PhoneInfor(String name, String num){
-		this.name = name;
-		this.phoneNumber = num;
-		this.birthday = "";
+		this(name,num, "입력된 값이 없습니다.");
 	}
 	
 	PhoneInfor(String name, String num, String bday){

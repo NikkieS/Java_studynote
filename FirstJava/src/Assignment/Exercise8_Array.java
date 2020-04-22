@@ -57,20 +57,31 @@ public class Exercise8_Array {
 	//4 5 6
 	//즉 총 N행으로 이뤄진 2차원 배열이 존재한다면, 메서드 호출 시, 1행은 2행으로 이동이 이뤄져야한다. 이번에도 마찬가지로 배열의 가로, 세로길이에 상관 없이 동작을 하도록 메서드가 정의되어야 하며, 정의된 메서드의 확인을 위한 main메서드도 함께 정의하자.
 	public static void rearrange(int[][] arr) {
-		int[][] temp=new int[arr.length][arr[0].length];
+		// 1차원 주소값만 바꿔주면 가능!
+		int[] temp = new int[arr[0].length];
 		
-		// temp에 arr를 복사해서 넣어준다
-		//System.arraycopy(가지고 올 배열, 시작점, 붙여 넣을 배열, 시작점, 길이)
-		for(int i=0; i<arr.length; i++) {
-			System.arraycopy(arr[i], 0, temp[i], 0, arr[0].length);
+		temp = arr[arr.length-1];	//1차원의 마지막 요소 :789
+		
+		// 위에서 아래로 변경
+		for(int i=arr.length-1; i>0; i--) {
+			arr[i]=arr[i-1];
 		}
 		
-		//3행 -> 1행 넣기
-		System.arraycopy(temp[arr.length-1], 0, arr[0], 0, arr[0].length);
-		//나머지 행들 넣기
-		for(int i=0; i<arr.length-1; i++) {
-			System.arraycopy(temp[i], 0, arr[i+1], 0, arr[0].length);
-		}
+		arr[0]=temp;
+//		int[][] temp=new int[arr.length][arr[0].length];
+//		
+//		// temp에 arr를 복사해서 넣어준다
+//		//System.arraycopy(가지고 올 배열, 시작점, 붙여 넣을 배열, 시작점, 길이)
+//		for(int i=0; i<arr.length; i++) {
+//			System.arraycopy(arr[i], 0, temp[i], 0, arr[0].length);
+//		}
+//		
+//		//3행 -> 1행 넣기
+//		System.arraycopy(temp[arr.length-1], 0, arr[0], 0, arr[0].length);
+//		//나머지 행들 넣기
+//		for(int i=0; i<arr.length-1; i++) {
+//			System.arraycopy(temp[i], 0, arr[i+1], 0, arr[0].length);
+//		}
 	}
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
