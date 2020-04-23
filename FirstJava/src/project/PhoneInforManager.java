@@ -1,19 +1,17 @@
 package project;
 
 import java.util.Scanner;
-import java.util.InputMismatchException;
 
 public class PhoneInforManager {
 	
-	PhoneInfor[] pBooks;
+	final PhoneInfor[] pBooks;
 		
 	// 입력된 친구의 정보 개수 --> 입력된 배열의 요소 개수
 	// 1. 참조할 때 반복의 횟수
 	// 2. 새로운 객체를 저장할때 index로 사용
 	int cnt;
 	
-	static Scanner sc;
-	static Scanner sc1;
+	Scanner sc;
 	
 	public PhoneInforManager() {
 		// 배열 초기화
@@ -36,30 +34,28 @@ public class PhoneInforManager {
 	
 	// PhoneInfor 객체를 생성
 	PhoneInfor createInstance() {
+		PhoneInfor info = null;
 			
-			PhoneInfor info = null;
-			
-			System.out.println("Enter the name.");
-			String name = sc.nextLine();
-			
-			System.out.println("Enter the number.");
-			String phoneNumber = sc.nextLine();
-			
-			System.out.println("Enter the birthday.");
-			String birthday = sc.nextLine();
-			
-			
-			
-			// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
-			if(birthday==null || birthday.trim().isEmpty()) {	//.trim String 양쪽 공백 삭제
-				info= new PhoneInfor(name, phoneNumber);
-			}
-			else {
-				info= new PhoneInfor(name,phoneNumber,birthday);
-			}
-			
-			return info;
+		System.out.println("Enter the name.");
+		String name = sc.nextLine();
+		
+		System.out.println("Enter the number.");
+		String phoneNumber = sc.nextLine();
+		
+		System.out.println("Enter the birthday.");
+		String birthday = sc.nextLine();
+		
+		
+		
+		// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
+		if(birthday==null || birthday.trim().isEmpty()) {	//.trim String 양쪽 공백 삭제
+			info= new PhoneInfor(name, phoneNumber);
 		}
+		else
+			info= new PhoneInfor(name,phoneNumber,birthday);
+		
+		return info;
+	}
 	
 	// 배열에서 이름을 기준으로 검색 후 index 값을 반환
 	int searchIndex(String name) {
@@ -113,58 +109,6 @@ public class PhoneInforManager {
 	void showAllData() {
 		for(int i=0; i<cnt; i++) {
 			pBooks[i].show();
-		}
-	}
-	
-	public void showMenu() {
-		System.out.println("---------------------------------");
-		System.out.println("Enter a menu option");
-		System.out.println("1. To add a new number");
-		System.out.println("2. To search by name");
-		System.out.println("3. To delete contact by name");
-		System.out.println("4. To view your contacts");
-		System.out.println("5. To quit");
-		System.out.println("---------------------------------");
-	}
-	
-	public static void main(String[] args) {
-		PhoneInforManager manager = new PhoneInforManager();
-		
-		while(true) {
-			manager.showMenu();
-			
-			try {
-				int selectNum = sc.nextInt();
-				sc.nextLine();
-				
-				switch(selectNum) {
-				case 1:
-					System.out.println("");
-					manager.addInfo();
-					break;
-				case 2:
-					System.out.println("");
-					manager.searchInfo();
-					break;
-				case 3:
-					System.out.println("");
-					manager.deleteInfo();
-					break;
-				case 4:
-					System.out.println("");
-					manager.showAllData();
-					break;
-				case 5:
-					System.out.println("");
-					System.out.println("Quit");
-					System.exit(0);
-					break;
-				}
-			}
-			catch(InputMismatchException e) {
-				System.out.println("Enter an option available from the menu.");
-				break;
-			}
 		}
 	}
 }

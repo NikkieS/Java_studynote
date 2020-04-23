@@ -39,18 +39,4 @@ public class PhoneInfor {
 	boolean check(String name) {
 		return this.name.equals(name);
 	}
-	
-	public static void main(String[] args) {
-		// data1
-		PhoneInfor data1 = new PhoneInfor("철수","000","0420");
-		// data2
-		PhoneInfor data2 = new PhoneInfor("영희","000");
-		// data3
-		PhoneInfor data3 = new PhoneInfor();
-		
-		data1.show();
-		data2.show();
-		data3.show();
-
-	}
 }
