@@ -20,7 +20,12 @@ public class PhoneInfor {
 	}
 	
 	void show() {
-		System.out.println("Name : "+name+", Phone number : "+phoneNumber);
+		System.out.print("Name : "+name+", Phone number : "+phoneNumber+", ");
+	}
+	
+	// 어떤 그룹인지 반환
+	int group() {
+		return 3;
 	}
 	
 	// name 속성값과 전달받은 문자열을 비교해서 반환
