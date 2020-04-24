@@ -13,6 +13,7 @@ public class PhoneInforManager {
 	
 	Scanner sc;
 	
+	// 초기화 생성자
 	public PhoneInforManager() {
 		// 배열 초기화
 		pBooks = new PhoneInfor[100];
@@ -22,137 +23,63 @@ public class PhoneInforManager {
 		sc = new Scanner(System.in);
 	}
 	
-	// 저장 : 이름, 전화번호, 생년월일 정보를 대상으로 하는 저장
-	// 배열에 PhoneInfor 타입의 참조값을 저장
-	void addInfo(int type) {
+	// 배열에 최상위클래스인 PhoneInfor 타입의 참조값을 저장 (다른 모든 하위클래스를 자동 형변환 시켜준다)
+	private void addInfo(PhoneInfor info) {
+		pBooks[cnt++] = info;
+	}
+	
+	// 저장 : 이름, 전화번호, 주소, 이메일, 타입에 따른 추가정보
+	// 사용자 요청에 맞는 인스턴스 생성
+	public void addContact(int type) {
+		String name, phoneNumber, address, email, major, year, company, club;
 		// 배열의 요소 대입
-		PhoneInfor info = null;
 		
-		System.out.println("Enter the name.");
-		String name = sc.nextLine();
+		System.out.println("Enter the name."); name = sc.nextLine();
 		
-		System.out.println("Enter the number.");
-		String phoneNumber = sc.nextLine();
+		System.out.println("Enter the number."); phoneNumber = sc.nextLine();
 		
-		System.out.println("Enter the address.");
-		String address = sc.nextLine();
+		System.out.println("Enter the address."); address = sc.nextLine();
 		
-		System.out.println("Enter the email.");
-		String email = sc.nextLine();
+		System.out.println("Enter the email."); email = sc.nextLine();
 		
 		// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
 		switch(type) {
 		case 1:
-			System.out.println("Enter the major.");
-			String major = sc.nextLine();
+			addInfo(new PhoneInfor2(name, phoneNumber, address, email));
+			break;
+		case 2:
+			System.out.println("Enter the major."); major = sc.nextLine();
 			
-			System.out.println("Enter the year.");
-			String year = sc.nextLine();
+			System.out.println("Enter the year."); year = sc.nextLine();
 			
 			// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
 			if(major==null || major.trim().isEmpty() || year==null || year.trim().isEmpty()) {	//.trim String 양쪽 공백 삭제
-				info = new PhoneUnivInfor(name, phoneNumber, address, email);
+				addInfo(new PhoneUnivInfor(name, phoneNumber, address, email));
 				break;
 			}
 			else {
-				info = new PhoneUnivInfor(name, phoneNumber, address, email, major, year);
-				break;
-			}
-		case 2:
-			System.out.println("Enter the company.");
-			String company = sc.nextLine();
-			
-			if(company==null || company.trim().isEmpty()) {	//.trim String 양쪽 공백 삭제
-				info = new PhoneCompanyInfor(name, phoneNumber, address, email);
-				break;
-			}
-			else {
-				info = new PhoneCompanyInfor(name, phoneNumber, address, email, company);
+				addInfo(new PhoneUnivInfor(name, phoneNumber, address, email, major, year));
 				break;
 			}
 		case 3:
-			info = new PhoneInfor2(name, phoneNumber, address, email);
+			System.out.println("Enter the company."); company = sc.nextLine();
+			
+			if(company==null || company.trim().isEmpty()) {	//.trim String 양쪽 공백 삭제
+				addInfo(new PhoneCompanyInfor(name, phoneNumber, address, email));
+				break;
+			}
+			else {
+				addInfo(new PhoneCompanyInfor(name, phoneNumber, address, email, company));
+				break;
+			}
+		case 4:
+			System.out.println("Enter the club."); club = sc.nextLine();
+			addInfo(new PhoneClubInfor(name, phoneNumber, address, email, club));
 			break;
 		}
-		
-		pBooks[cnt] = info;
-		cnt++;
-		
-//		switch(type) {
-//		case 1:
-//			// 배열의 요소 대입
-//			pBooks[cnt] = createInstance(type);
-//			// 등록된 정보의 개수를 증가
-//			cnt++;
-//			break;
-//		case 2:
-//			// 배열의 요소 대입
-//			pBooks[cnt] = createInstance(type);
-//			// 등록된 정보의 개수를 증가
-//			cnt++;
-//			break;
-//		case 3:
-//			// 배열의 요소 대입
-//			pBooks[cnt] = createInstance(type);
-//			// 등록된 정보의 개수를 증가
-//			cnt++;
-//			break;
-//		}
+		System.out.println("Contact info of "+name+" has been successfully added.");
+		System.out.println("");
 	}
-	
-	// PhoneInfor 객체를 생성
-//	PhoneInfor createInstance(int type) {
-//		PhoneInfor info = null;
-//			
-//		System.out.println("Enter the name.");
-//		String name = sc.nextLine();
-//		
-//		System.out.println("Enter the number.");
-//		String phoneNumber = sc.nextLine();
-//		
-//		System.out.println("Enter the address.");
-//		String address = sc.nextLine();
-//		
-//		System.out.println("Enter the email.");
-//		String email = sc.nextLine();
-//		
-//		// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
-//		switch(type) {
-//		case 1:
-//			System.out.println("Enter the major.");
-//			String major = sc.nextLine();
-//			
-//			System.out.println("Enter the year.");
-//			String year = sc.nextLine();
-//			
-//			// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
-//			if(major==null || major.trim().isEmpty() || year==null || year.trim().isEmpty()) {	//.trim String 양쪽 공백 삭제
-//				info = new PhoneUnivInfor(name, phoneNumber, address, email);
-//				break;
-//			}
-//			else {
-//				info = new PhoneUnivInfor(name, phoneNumber, address, email, major, year);
-//				break;
-//			}
-//		case 2:
-//			System.out.println("Enter the company.");
-//			String company = sc.nextLine();
-//			
-//			if(company==null || company.trim().isEmpty()) {	//.trim String 양쪽 공백 삭제
-//				info = new PhoneCompanyInfor(name, phoneNumber, address, email);
-//				break;
-//			}
-//			else {
-//				info = new PhoneCompanyInfor(name, phoneNumber, address, email, company);
-//				break;
-//			}
-//		case 3:
-//			info = new PhoneInfor2(name, phoneNumber, address, email);
-//			break;
-//		}
-//		
-//		return info;
-//	}
 	
 	// 배열에서 이름을 기준으로 검색 후 index 값을 반환
 	int searchIndex(String name) {
@@ -202,7 +129,7 @@ public class PhoneInforManager {
 		}
 	}
 	
-	// 전체 리스트 출력
+	// 전화번호부 전체 리스트 출력
 	void showAllData() {
 		for(int i=0; i<cnt; i++) {
 			pBooks[i].show();
@@ -210,13 +137,18 @@ public class PhoneInforManager {
 		}
 	}
 	
-	// 종류별 리스트 출력
+	// 그룹별 리스트 출력
 	void showData(int type) {
+		boolean search = false;
 		for(int i=0; i<cnt; i++) {
 			if(pBooks[i].group()==type) {
 				pBooks[i].show();
 				System.out.println(" ");
+				search = true;
 			}
+		}
+		if (search == false) {
+			System.out.println("This group is empty");
 		}
 	}
 }

@@ -1,41 +1,30 @@
 package projectVer4;
 
-import java.util.Scanner;
-
 public class PhoneMain {
 
 	public static void main(String[] args) {
-		PhoneInforManager manager = new PhoneInforManager();
-		
-		Scanner sc=new Scanner(System.in);
-		
+		PhoneInforManager manager = new PhoneInforManager();		
 		
 		while(true) {
-			Menu.showType();
-			int selectType = sc.nextInt();
-			sc.nextLine();
-			
-			switch(selectType) {
-			case 1:
-				System.out.println("University contacts.");
-				break;
-			case 2:
-				System.out.println("Company contacts.");
-				break;
-			case 3:
-				System.out.println("Regular contacts.");
-				break;
-			}
 			
 			Menu.showMenu();
 			
-			int selectMenu = sc.nextInt();
-			sc.nextLine();
+			int selectMenu = manager.sc.nextInt();
+			manager.sc.nextLine();
 			
 			switch(selectMenu) {
 			case 1:
 				System.out.println("");
-				manager.addInfo(selectType);
+				Menu.showType();
+				int selectType = manager.sc.nextInt();
+				manager.sc.nextLine();
+				
+				switch(selectType) {
+				case 1: case 2: case 3: case 4:
+					System.out.println("");
+					manager.addContact(selectType);
+					break;
+				}
 				break;
 			case 2:
 				System.out.println("");
@@ -51,16 +40,22 @@ public class PhoneMain {
 				break;
 			case 5:
 				System.out.println("");
-				manager.showData(selectType);
+				Menu.showType();
+				selectType = manager.sc.nextInt();
+				manager.sc.nextLine();
+				
+				switch(selectType) {
+				case 1: case 2: case 3: case 4:
+					System.out.println("");
+					manager.showData(selectType);
+					break;
+				}
 				break;
 			case 6:
 				System.out.println("");
 				System.out.println("Quit");
-				System.exit(0);
-				break;
+				return;
 			}
-
 		}
-
 	}
 }

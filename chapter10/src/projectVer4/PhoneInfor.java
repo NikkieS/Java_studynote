@@ -25,7 +25,7 @@ public class PhoneInfor {
 	
 	// 어떤 그룹인지 반환
 	int group() {
-		return 3;
+		return 1;
 	}
 	
 	// name 속성값과 전달받은 문자열을 비교해서 반환

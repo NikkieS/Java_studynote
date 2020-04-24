@@ -11,14 +11,14 @@ public class PhoneUnivInfor extends PhoneInfor2 {
 	}
 	
 	PhoneUnivInfor(String name, String phoneNumber, String address, String email) {
-		this(name, phoneNumber, address, email, "No major data entered", "No year data enetered");
+		this(name, phoneNumber, address, email, "No data entered", "No data enetered");
 	}
 
 	@Override
 	void show() {
 		// TODO Auto-generated method stub
 		super.show();
-		System.out.print("Group : "+"University, ");
+		System.out.print("Group : University, ");
 		if(major!=null && year!=null) {
 			System.out.println("Major : "+major+", Year : "+year);
 		}
@@ -26,11 +26,6 @@ public class PhoneUnivInfor extends PhoneInfor2 {
 
 	@Override
 	int group() {
-		return 1;
+		return 2;
 	}
-	
-	
-	
-	
-	
 }

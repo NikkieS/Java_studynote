@@ -4,15 +4,13 @@ public class Buyer{
 	
 	int money;
 	int bonusPoint;
-	int sumOfPrice;
-	int sumOfPoint;
 	int numOfProduct;
+	Product[] item;
 	
 	Buyer(){
-		this.money = 1000;
+		this.money = 16500;
 		this.bonusPoint = 0;
-		this.sumOfPrice = 0;
-		this.sumOfPoint = 0;
+		this.item=new Product[10];
 		this.numOfProduct = 0;
 	}
 	
@@ -26,17 +24,15 @@ public class Buyer{
 		//구매 처리
 		this.money-=p.price;
 		this.bonusPoint+=p.bonusPoint;
-		this.numOfProduct+=1;
+		
+		item[numOfProduct++]=p;
 		System.out.println(p+"를 구매하셨습니다.");
 		
-		for(int i=0; i<pA.length; i++) {
-			System.out.println(pA[i]);
-			sumOfPrice += pA[i].price;
-			sumOfPoint += pA[i].bonusPoint;
-		}
-		System.out.println("전체 제품의 가격의 합   : "+sumOfPrice);
-		System.out.println("전체 제품의 포인트의 합 : "+sumOfPoint);
-		
+//		for(int i=0; i<pA.length; i++) {
+//			System.out.println(pA[i]);
+//			sumOfPrice += pA[i].price;
+//			sumOfPoint += pA[i].bonusPoint;
+//		}
 	}
 	
 	// 구매 내역을 출력
