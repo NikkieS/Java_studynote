@@ -19,6 +19,11 @@ public class PhoneMain {
 				int selectType = manager.sc.nextInt();
 				manager.sc.nextLine();
 				
+				// 잘못된 입력을 했을때 return해서 메소드를 끝내줌
+				if(!(selectType>0 && selectType <5)) {
+					System.out.println("Your choice is not in the option.\nReturning to menu.");
+				}
+				
 				switch(selectType) {
 				case 1: case 2: case 3: case 4:
 					System.out.println("");

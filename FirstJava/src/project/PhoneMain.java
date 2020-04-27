@@ -36,8 +36,7 @@ public class PhoneMain {
 			case 5:
 				System.out.println("");
 				System.out.println("Quit");
-				System.exit(0);
-				break;
+				return;
 			}
 
 		}

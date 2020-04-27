@@ -38,12 +38,6 @@ public class PhoneInforManager {
 	// 2.2 사용자 요청에 맞는 인스턴스 생성
 	// 저장 : 이름, 전화번호, 주소, 이메일, 타입에 따른 추가정보
 	public void addContact(int type) {
-		// 잘못된 입력을 했을때 return해서 메소드를 끝내줌
-		if(!(type>0 && type <5)) {
-			System.out.println("Your choice is not in the option.\n Returning to menu.");
-			return;
-		}
-		
 		String name, phoneNumber, address, email, major, grade, company, club;
 		
 		// 공통정보 수집 : 이름, 전화번호, 주소, 이메일
@@ -197,16 +191,12 @@ public class PhoneInforManager {
 			
 			PhoneInfor info = null;
 			
-			if(pBooks[searchIndex] instanceof PhoneInfor2) {
-				info = new PhoneInfor2(editName, phoneNumber, address, email);
-			}
-			else if(pBooks[searchIndex] instanceof PhoneUnivInfor) {
+			if(pBooks[searchIndex] instanceof PhoneUnivInfor) {
 				System.out.println("Enter the new major."); String major = sc.nextLine();
 				
 				System.out.println("Enter the new grade."); String grade = sc.nextLine();
 				
 				info = new PhoneUnivInfor(editName, phoneNumber, address, email, major, grade);
-				
 			}
 			else if(pBooks[searchIndex] instanceof PhoneCompanyInfor) {
 				System.out.println("Enter the company."); String company = sc.nextLine();
@@ -216,6 +206,9 @@ public class PhoneInforManager {
 			else if(pBooks[searchIndex] instanceof PhoneClubInfor) {
 				System.out.println("Enter the club."); String club = sc.nextLine();
 				info = new PhoneClubInfor(name, phoneNumber, address, email, club);
+			}
+			else if(pBooks[searchIndex] instanceof PhoneInfor2) {
+				info = new PhoneInfor2(editName, phoneNumber, address, email);
 			}
 			
 			// 배열에 새로운 인스턴스를 저장

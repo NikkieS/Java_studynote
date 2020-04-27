@@ -6,7 +6,7 @@ public class PhoneInfor {
 	protected String phoneNumber;	//전화번호
 	private String birthday;		//생년월일
 	
-	PhoneInfor(){
+	public PhoneInfor(){
 	}
 	
 	PhoneInfor(String name, String num){
