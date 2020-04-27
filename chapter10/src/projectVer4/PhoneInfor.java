@@ -30,6 +30,8 @@ public class PhoneInfor {
 	
 	// name 속성값과 전달받은 문자열을 비교해서 반환
 	boolean check(String name) {
+		// equals : 객체끼리 값을 비교하는 String의 메소드
+		// == 연사자 : 비교하고자 하는 대상의 주소값을 비교
 		return this.name.equals(name);
 	}
 

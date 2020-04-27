@@ -53,6 +53,10 @@ public class PhoneMain {
 				break;
 			case 6:
 				System.out.println("");
+				manager.editInfo();
+				break;
+			case 7:
+				System.out.println("");
 				System.out.println("Quit");
 				return;
 			}
