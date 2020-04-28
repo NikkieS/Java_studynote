@@ -1,4 +1,4 @@
-package project;
+package projectVer1to3;
 /*작성자 : 송가람
 작성일 : 2020.04.20
 작성내용 : 전화번호 관리 프로그램 (이름, 전화번호, 생년월일)

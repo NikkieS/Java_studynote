@@ -1,4 +1,4 @@
-package project;
+package projectVer1to3;
 
 public class Menu {
 	public static void showMenu() {

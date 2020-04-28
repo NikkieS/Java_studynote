@@ -14,7 +14,7 @@ package friend;
   		대학(전공, 학년), 고교(직업)
 */
 
-public abstract class Friend {
+public abstract class Friend implements Info {
 	String name;
 	String phoneNum;
 	String addr;
@@ -33,5 +33,5 @@ public abstract class Friend {
 	
 	// 기본 데이터와 하위클래스의 데이터를 출력하도록 오버라이딩한다.
 	// 추상 메소드 생성
-	abstract void showData();
+	//abstract void showData();
 }

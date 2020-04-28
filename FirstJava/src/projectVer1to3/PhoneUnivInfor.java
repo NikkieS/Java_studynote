@@ -1,4 +1,4 @@
-package project;
+package projectVer1to3;
 
 public class PhoneUnivInfor {
 	private String name;		//이름

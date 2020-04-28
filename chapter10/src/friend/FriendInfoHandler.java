@@ -3,6 +3,15 @@ package friend;
 import java.util.Scanner;
 
 public class FriendInfoHandler {
+	/*
+	 2020.04.28
+	 싱글톤 처리 연습
+	*/
+	private static FriendInfoHandler handler = new FriendInfoHandler(100);
+	
+	public static FriendInfoHandler getInstance() {
+		return handler;
+	}
 	
 	Scanner kb = new Scanner(System.in);
 	
