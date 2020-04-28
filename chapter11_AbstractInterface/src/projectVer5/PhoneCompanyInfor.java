@@ -15,9 +15,6 @@ public class PhoneCompanyInfor extends PhoneInfor {
 	@Override
 	public void showData() {
 		super.showBasicInfo();
-		System.out.print(", Group : Company, ");
-		if(company!=null) {
-			System.out.println("Company name: "+company);
-		}
+		System.out.println(", Group : Company, Company name: "+company);
 	}
 }

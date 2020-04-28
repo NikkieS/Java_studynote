@@ -3,7 +3,7 @@ package projectVer5;
 import java.util.Scanner;
 
 public class PhoneBookManager {
-	// 1. manager 클래스의 싱글톤 처리
+	// manager 클래스의 싱글톤 처리
 	private static PhoneBookManager manager = new PhoneBookManager();
 	
 	public static PhoneBookManager getInstance() {
@@ -12,9 +12,9 @@ public class PhoneBookManager {
 	
 	// 1. 배열 생성
 	final PhoneInfor[] pBooks;
-	// 2. 입력된 친구의 정보 개수 --> 입력된 배열의 요소 개수
-	// 2.1 참조할 때 반복의 횟수
-	// 2.2 새로운 객체를 저장할때 index로 사용
+	// 입력된 친구의 정보 개수 --> 입력된 배열의 요소 개수
+	// 참조할 때 반복의 횟수
+	// 새로운 객체를 저장할때 index로 사용
 	int cnt;
 	Scanner sc;
 	
@@ -55,6 +55,7 @@ public class PhoneBookManager {
 //		case 1:
 //			addInfo(new PhoneInfor(name, phoneNumber, address, email));
 //			break;
+		
 		// 대학 클래스 인스턴스 생성	
 		case Menu.UNIV:
 			System.out.println("Enter the major."); major = sc.nextLine();
@@ -69,6 +70,7 @@ public class PhoneBookManager {
 				addInfo(new PhoneUnivInfor(name, phoneNumber, address, email, major, grade));
 				break;
 			}
+			
 		// 회사 클래스 인스턴스 생성	
 		case Menu.COMP:
 			System.out.println("Enter the company."); company = sc.nextLine();
@@ -81,6 +83,7 @@ public class PhoneBookManager {
 				addInfo(new PhoneCompanyInfor(name, phoneNumber, address, email, company));
 				break;
 			}
+			
 		// 동호회 클래스 인스턴스 생성	
 		case Menu.CLUB:
 			System.out.println("Enter the club."); club = sc.nextLine();
@@ -102,17 +105,7 @@ public class PhoneBookManager {
 	}
 	
 	// 3.2 그룹별 리스트 출력
-	void showGroupData() {
-		System.out.println("---------------------------------");
-		System.out.println("Choose an option");
-//		System.out.println(Menu.REG+". To access regular contacts");
-		System.out.println(Menu.UNIV+". To access university contacts");
-		System.out.println(Menu.COMP+". To access company contacts");
-		System.out.println(Menu.CLUB+". To access club contacts");
-		System.out.println("---------------------------------");
-		
-		int selectType = sc.nextInt();
-		sc.nextLine();
+	void showGroupData(int type) {
 		boolean search = false;
 		
 		if(cnt<0) {
@@ -120,7 +113,7 @@ public class PhoneBookManager {
 			return;
 		}
 
-		switch(selectType) {
+		switch(type) {
 		case Menu.UNIV:
 			for(int i=0; i<cnt; i++) {
 				if(pBooks[i] instanceof PhoneUnivInfor) {
@@ -129,6 +122,7 @@ public class PhoneBookManager {
 				}
 			}
 			break;
+			
 		case Menu.COMP:
 			for(int i=0; i<cnt; i++) {
 				if(pBooks[i] instanceof PhoneCompanyInfor) {
@@ -137,6 +131,7 @@ public class PhoneBookManager {
 				}
 			}
 			break;
+			
 		case Menu.CLUB:
 			for(int i=0; i<cnt; i++) {
 				if(pBooks[i] instanceof PhoneClubInfor) {
@@ -145,14 +140,6 @@ public class PhoneBookManager {
 				}
 			}
 			break;
-//		case Menu.REG:
-//			for(int i=0; i<cnt; i++) {
-//				if(!(pBooks[i] instanceof PhoneUnivInfor && pBooks[i] instanceof PhoneCompanyInfor && pBooks[i] instanceof PhoneClubInfor)) {
-//					pBooks[i].showData();
-//					search = true;
-//				}
-//			}
-//			break;
 		}
 		
 		if (search == false) {
@@ -251,9 +238,6 @@ public class PhoneBookManager {
 				System.out.println("Enter the club."); String club = sc.nextLine();
 				info = new PhoneClubInfor(name, phoneNumber, address, email, club);
 			}
-//			else if(pBooks[searchIndex] instanceof PhoneInfor) {
-//				info = new PhoneInfor(editName, phoneNumber, address, email);
-//			}
 			
 			// 배열에 새로운 인스턴스를 저장
 			pBooks[searchIndex] = info;

@@ -17,9 +17,6 @@ public class PhoneUnivInfor extends PhoneInfor {
 	@Override
 	public void showData() {
 		super.showBasicInfo();
-		System.out.print(", Group : University, ");
-		if(major!=null && year!=null) {
-			System.out.println("Major : "+major+", Year : "+year);
-		}
+		System.out.println(", Group : University, Major : "+major+", Year : "+year);
 	}
 }
