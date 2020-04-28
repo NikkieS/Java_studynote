@@ -9,8 +9,8 @@ public interface Menu {
 	int EDIT = 6;
 	int EXIT = 7;
 	
-	int REG = 1;
-	int UNIV = 2;
-	int COMP = 3;
-	int CLUB = 4;
+//	int REG = 1;
+	int UNIV = 1;
+	int COMP = 2;
+	int CLUB = 3;
 }

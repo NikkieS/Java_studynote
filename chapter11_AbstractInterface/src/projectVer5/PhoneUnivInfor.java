@@ -22,10 +22,4 @@ public class PhoneUnivInfor extends PhoneInfor {
 			System.out.println("Major : "+major+", Year : "+year);
 		}
 	}
-	
-	
-//	@Override
-//	int group() {
-//		return 2;
-//	}
 }

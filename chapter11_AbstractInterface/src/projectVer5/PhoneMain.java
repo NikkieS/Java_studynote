@@ -9,7 +9,7 @@ public class PhoneMain {
 			
 			System.out.println("---------------------------------");
 			System.out.println("Enter a menu option");
-//			System.out.println(Menu.INSERT_NEW+". To add a new number");
+			System.out.println(Menu.INSERT_NEW+". To add a new number");
 			System.out.println(Menu.SEARCH+". To search by name");
 			System.out.println(Menu.DELETE+". To delete contact by name");
 			System.out.println(Menu.VIEW_ALL+". To view entire contacts");
@@ -48,7 +48,7 @@ public class PhoneMain {
 				// 잘못된 입력을 했을때 return해서 메소드를 끝내줌
 				try {
 					selectType = manager.sc.nextInt();
-					if(!(selectType>=Menu.REG && selectType<=Menu.CLUB)) {
+					if(!(selectType>=Menu.UNIV && selectType<=Menu.CLUB)) {
 						System.out.println("Number out of range.\nReturning to menu.");
 					}
 					manager.sc.nextLine();
@@ -59,7 +59,7 @@ public class PhoneMain {
 				}
 				
 				switch(selectType) {
-				case Menu.REG: case Menu.UNIV: case Menu.COMP: case Menu.CLUB:
+				case Menu.UNIV: case Menu.COMP: case Menu.CLUB:
 					System.out.println("");
 					manager.addContact(selectType);
 					break;

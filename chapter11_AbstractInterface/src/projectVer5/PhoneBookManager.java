@@ -94,7 +94,7 @@ public class PhoneBookManager {
 	// 3. 배열의 데이터 출력
 	// 3.1 전화번호부 전체 리스트 출력
 	void showAllData() {
-		//System.out.println("All ");
+		System.out.println("All ");
 		for(int i=0; i<cnt; i++) {
 			pBooks[i].showData();
 			System.out.println(" ");
@@ -105,7 +105,7 @@ public class PhoneBookManager {
 	void showGroupData() {
 		System.out.println("---------------------------------");
 		System.out.println("Choose an option");
-		System.out.println(Menu.REG+". To access regular contacts");
+//		System.out.println(Menu.REG+". To access regular contacts");
 		System.out.println(Menu.UNIV+". To access university contacts");
 		System.out.println(Menu.COMP+". To access company contacts");
 		System.out.println(Menu.CLUB+". To access club contacts");
@@ -145,14 +145,14 @@ public class PhoneBookManager {
 				}
 			}
 			break;
-		case Menu.REG:
-			for(int i=0; i<cnt; i++) {
-				if(!(pBooks[i] instanceof PhoneUnivInfor && pBooks[i] instanceof PhoneCompanyInfor && pBooks[i] instanceof PhoneClubInfor)) {
-					pBooks[i].showData();
-					search = true;
-				}
-			}
-			break;
+//		case Menu.REG:
+//			for(int i=0; i<cnt; i++) {
+//				if(!(pBooks[i] instanceof PhoneUnivInfor && pBooks[i] instanceof PhoneCompanyInfor && pBooks[i] instanceof PhoneClubInfor)) {
+//					pBooks[i].showData();
+//					search = true;
+//				}
+//			}
+//			break;
 		}
 		
 		if (search == false) {
