@@ -17,6 +17,11 @@ public abstract class PhoneInfor implements Show {
 		System.out.print("Name : "+name+", Phone number : "+phoneNumber+", Address : "+address+", Email : "+email);
 	}
 	
+	/*
+	 * 2020.04.28
+	 * 수정내용 : interface 구현으로 메소드 오버라이딩 생략
+	 * PhoneInfor 클래스 -> 추상클래스
+	 */
 //	@Override
 //	public void showData() {
 //		showBasicInfo();

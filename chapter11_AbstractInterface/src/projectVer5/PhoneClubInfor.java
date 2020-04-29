@@ -17,9 +17,4 @@ public class PhoneClubInfor extends PhoneInfor {
 			System.out.println("Club name: "+club);
 		}
 	}
-
-//	@Override
-//	int group() {
-//		return 4;
-//	}	
 }

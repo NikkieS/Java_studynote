@@ -8,6 +8,9 @@ public class PhoneMain {
 		while(true) {
 			//메뉴 옵션 출력 메소드
 			MenuOption.showMenu();
+			
+			/* 2020.04.28
+			 * 수정내용 : 예외클래스 적용 try-catch */
 			try {
 				int selectMenu = optionMenu(manager.sc.nextInt());
 				manager.sc.nextLine();

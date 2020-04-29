@@ -2,6 +2,12 @@ package projectVer5;
 
 import java.util.Scanner;
 
+/*
+ * 2020.04.28
+ * 수정내용 : interface 구현으로 기본 클래스 생성자 생략
+ * PhoneInfor 클래스 -> 추상클래스
+ */
+
 public class PhoneBookManager {
 	// manager 클래스의 싱글톤 처리
 	private static PhoneBookManager manager = new PhoneBookManager();
@@ -51,11 +57,6 @@ public class PhoneBookManager {
 		
 		// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
 		switch(type) {
-		// 기본 클래스 인스턴스 생성
-//		case 1:
-//			addInfo(new PhoneInfor(name, phoneNumber, address, email));
-//			break;
-		
 		// 대학 클래스 인스턴스 생성	
 		case Menu.UNIV:
 			System.out.println("Enter the major."); major = sc.nextLine();
