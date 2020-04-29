@@ -1,5 +1,7 @@
 package projectVer5;
 
+import java.util.InputMismatchException;
+
 public class PhoneMain {
 
 	public static void main(String[] args) {
@@ -8,11 +10,12 @@ public class PhoneMain {
 		while(true) {
 			//메뉴 옵션 출력 메소드
 			MenuOption.showMenu();
+			int selectMenu, selectType;
 			
 			/* 2020.04.28
-			 * 수정내용 : 예외클래스 적용 try-catch */
+			 * 수정내용 : 예외처리 try-catch */
 			try {
-				int selectMenu = optionMenu(manager.sc.nextInt());
+				selectMenu = optionMenu(manager.sc.nextInt());
 				manager.sc.nextLine();
 				
 				switch(selectMenu) {
@@ -23,7 +26,7 @@ public class PhoneMain {
 					//생성자 타입 메뉴 출력 메소드
 					MenuOption.showType();
 
-					int selectType = optionType(manager.sc.nextInt());
+					selectType = optionType(manager.sc.nextInt());
 					manager.sc.nextLine();
 					
 					switch(selectType) {
@@ -73,11 +76,12 @@ public class PhoneMain {
 				System.out.println(e.getMessage());
 				continue;
 			}
-			catch(Exception e) {
+			catch(InputMismatchException e) {
 				// 문자열 입력시 : warning문구 출력 후 재시작
 				System.out.println("Please put numbers only.\nReturning to menu.");
-				manager.sc.nextLine();
 				continue;
+			}finally {
+				manager.sc.nextLine();
 			}
 		}
 	}
