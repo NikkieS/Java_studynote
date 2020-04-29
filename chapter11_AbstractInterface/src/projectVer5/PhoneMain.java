@@ -57,7 +57,6 @@ public class PhoneMain {
 					MenuOption.showType();
 					selectType = optionType(manager.sc.nextInt());
 					manager.sc.nextLine();
-					
 					manager.showGroupData(selectType);
 					break;
 				// 수정
@@ -71,6 +70,7 @@ public class PhoneMain {
 					System.out.println("Quit");
 					return;
 				}
+				
 			}catch(OptionInputException e) {
 				// 메뉴 옵션에 없는 숫자 입력시 : warning 문구 출력 후 재시작
 				System.out.println(e.getMessage());
@@ -78,11 +78,15 @@ public class PhoneMain {
 			}
 			catch(InputMismatchException e) {
 				// 문자열 입력시 : warning문구 출력 후 재시작
-				System.out.println("Please put numbers only.\nReturning to menu.");
-				continue;
-			}finally {
+				System.out.println("Please put numbers only.\nReturning to menu.\n");
 				manager.sc.nextLine();
-			}
+				continue;
+			}catch(Exception e) {
+				// 문자열 입력시 : warning문구 출력 후 재시작
+				System.out.println("Something went wrong.\nReturning to menu.\n");
+				manager.sc.nextLine();
+				continue;
+			}			
 		}
 	}
 	static int optionMenu(int num) throws OptionInputException{

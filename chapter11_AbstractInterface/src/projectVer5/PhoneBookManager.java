@@ -46,15 +46,27 @@ public class PhoneBookManager {
 	public void addContact(int type) {
 		String name, phoneNumber, address, email, major, grade, company, club;
 		
-		// 공통정보 수집 : 이름, 전화번호, 주소, 이메일
-		System.out.println("Enter the name."); name = sc.nextLine();
-		
-		System.out.println("Enter the number."); phoneNumber = sc.nextLine();
-		
-		System.out.println("Enter the address."); address = sc.nextLine();
-		
-		System.out.println("Enter the email."); email = sc.nextLine();
-		
+		while(true) {
+			// 공통정보 수집 : 이름, 전화번호, 주소, 이메일
+			System.out.println("Enter the name."); name = sc.nextLine();
+			
+			System.out.println("Enter the number."); phoneNumber = sc.nextLine();
+			
+			System.out.println("Enter the address."); address = sc.nextLine();
+			
+			System.out.println("Enter the email."); email = sc.nextLine();
+			
+			try {
+				if(name.trim().isEmpty() || phoneNumber.trim().isEmpty() || address.trim().isEmpty() || email.trim().isEmpty()) {
+					StringEmptyException excpt = new StringEmptyException();
+					throw excpt;}
+			}catch(StringEmptyException e) {
+				System.out.println("Basic information must be filled out.");
+				System.out.println("Please re-enter\n");
+				continue;
+			}
+			break;
+		}
 		// 사용자의 입력 데이터에 따라 인스턴스 생성 방법을 구분
 		switch(type) {
 		// 대학 클래스 인스턴스 생성	
@@ -71,7 +83,6 @@ public class PhoneBookManager {
 				addInfo(new PhoneUnivInfor(name, phoneNumber, address, email, major, grade));
 				break;
 			}
-			
 		// 회사 클래스 인스턴스 생성	
 		case Menu.COMP:
 			System.out.println("Enter the company."); company = sc.nextLine();
@@ -84,7 +95,6 @@ public class PhoneBookManager {
 				addInfo(new PhoneCompanyInfor(name, phoneNumber, address, email, company));
 				break;
 			}
-			
 		// 동호회 클래스 인스턴스 생성	
 		case Menu.CLUB:
 			System.out.println("Enter the club."); club = sc.nextLine();
@@ -110,7 +120,7 @@ public class PhoneBookManager {
 		boolean search = false;
 		
 		if(cnt<0) {
-			System.out.println("Your contact is empty.");
+			System.out.println("Your contact is empty.\n");
 			return;
 		}
 
@@ -123,7 +133,6 @@ public class PhoneBookManager {
 				}
 			}
 			break;
-			
 		case Menu.COMP:
 			for(int i=0; i<cnt; i++) {
 				if(pBooks[i] instanceof PhoneCompanyInfor) {
@@ -132,7 +141,6 @@ public class PhoneBookManager {
 				}
 			}
 			break;
-			
 		case Menu.CLUB:
 			for(int i=0; i<cnt; i++) {
 				if(pBooks[i] instanceof PhoneClubInfor) {
@@ -144,7 +152,7 @@ public class PhoneBookManager {
 		}
 		
 		if (search == false) {
-			System.out.println("This group is empty.");
+			System.out.println("This group is empty.\n");
 		}
 	}
 	
@@ -170,10 +178,11 @@ public class PhoneBookManager {
 			int searchIndex = searchIndex(name);
 			
 			if (searchIndex<0) {
-				System.out.println(name+" is not in your contacts.");
+				System.out.println(name+" is not in your contacts.\n");
 			}
 			else
 				pBooks[searchIndex].showData();
+				System.out.println("");
 		}
 	
 	// 5. 배열의 정보 삭제
@@ -185,7 +194,7 @@ public class PhoneBookManager {
 		int searchIndex = searchIndex(name);
 		
 		if(searchIndex<0) {
-			System.out.println(name+" is not in your contacts.");
+			System.out.println(name+" is not in your contacts.\n");
 		}
 		else {
 			// index부터 저장된 위치까지 왼쪽으로 쉬프트
@@ -194,7 +203,7 @@ public class PhoneBookManager {
 			}
 			cnt-=1;
 			
-			System.out.println("Contact info of "+name+" has been successfully deleted.");
+			System.out.println("Contact info of "+name+" has been successfully deleted.\n");
 		}
 	}
 	
