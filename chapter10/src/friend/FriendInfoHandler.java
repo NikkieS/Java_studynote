@@ -1,6 +1,7 @@
 package friend;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class FriendInfoHandler {
 	/*
@@ -19,12 +20,17 @@ public class FriendInfoHandler {
 	// 친구정보를 저장하는 기능
 	// 친구정보의 기본 정보 출력
 	// 친구정보 상세 정보 출력
-	private Friend[] myFriends;
-	private int numOfFriends;
+	
+	//private Friend[] myFriends;
+	//private int numOfFriends;
+	
+	private ArrayList<Friend> myFriends;
+	
 	
 	public FriendInfoHandler(int num) {
-		this.myFriends = new Friend[num];
-		this.numOfFriends=0;
+		//this.myFriends = new Friend[num];
+		//this.numOfFriends=0;
+		myFriends = new ArrayList<Friend>();
 	}
 	
 	// 친구정보를 저장하는 기능
@@ -33,7 +39,8 @@ public class FriendInfoHandler {
 	
 	// 1. 배열에 저장하는 기능
 	private void addFriendInfo(Friend fren) {
-		myFriends[numOfFriends++]=fren;
+		//myFriends[numOfFriends++]=fren;
+		myFriends.add(fren);
 	}
 	
 	public void addFriend(int choice) {
@@ -64,15 +71,19 @@ public class FriendInfoHandler {
 	}
 	
 	public void showAllData() {
-		for(int i=0; i<numOfFriends; i++) {
-			myFriends[i].showData();
+		// for(int i=0; i< numOfFriends; i++)
+		for(int i=0; i<myFriends.size(); i++) {
+			//myFriends[i].showData();
+			myFriends.get(i).showData();
 			System.out.println("");
 		}
 	}
 	
 	public void showAllSimpleData() {
-		for(int i=0; i<numOfFriends; i++) {
-			myFriends[i].showBasicInfo();
+		// for(int i=0; i< numOfFriends; i++)
+		for(int i=0; i<myFriends.size(); i++) {
+			//myFriends[i].showBasicInfo();
+			myFriends.get(i).showBasicInfo();
 			System.out.println("");
 		}
 	}
