@@ -2,6 +2,7 @@ package ex;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 public class ArrayListTest {
@@ -37,8 +38,17 @@ public class ArrayListTest {
 		}
 		
 		// 데이터의 삭제
+		System.out.println(list.get(0)+"삭제");
 		list.remove(0);
 		System.out.println(list.size());
+		
+		System.out.println("Iterator를 이용한 모든 요소 출력.");
+		Iterator<Integer> itr = list.iterator();
+		
+		while(itr.hasNext()) {
+			int num = itr.next();
+			System.out.println(num);
+		}
 	}
 
 }
