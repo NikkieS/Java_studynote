@@ -9,13 +9,6 @@ import java.util.ArrayList;
  */
 
 public class PhoneBookManager {
-	// manager 클래스의 싱글톤 처리
-	private static PhoneBookManager manager = new PhoneBookManager();
-	
-	public static PhoneBookManager getInstance() {
-		return manager;
-	}
-	
 	// 1. 배열 생성
 	//final PhoneInfor[] = pBooks;
 	final ArrayList<PhoneInfor> pBooks;
@@ -26,7 +19,7 @@ public class PhoneBookManager {
 	Scanner sc;
 	
 	// 초기화 생성자
-	public PhoneBookManager() {
+	private PhoneBookManager(int num) {
 		// 배열 초기화
 		//pBooks = new PhoneInfor[100];
 		pBooks = new ArrayList<PhoneInfor>();
@@ -36,6 +29,13 @@ public class PhoneBookManager {
 		sc = new Scanner(System.in);
 	}
 	
+	// manager 클래스의 싱글톤 처리
+		private static PhoneBookManager manager = new PhoneBookManager(100);
+		
+		public static PhoneBookManager getInstance() {
+			return manager;
+		}
+		
 	// 2. 배열에 정보 저장
 	// 2.1 배열에 추가 : 배열에 최상위클래스인 PhoneInfor 타입의 참조값을 저장 (다른 모든 하위클래스를 자동 형변환 시켜준다)
 	private void addInfo(PhoneInfor info) {
