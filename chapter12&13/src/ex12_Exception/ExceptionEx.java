@@ -1,4 +1,4 @@
-package ex;
+package ex12_Exception;
 
 import java.util.Scanner;
 

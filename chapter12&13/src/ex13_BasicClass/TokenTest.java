@@ -1,4 +1,4 @@
-package ex;
+package ex13_BasicClass;
 
 import java.util.StringTokenizer;
 

@@ -1,4 +1,4 @@
-package ex;
+package ex15_Thread;
 
 public class AccessThread extends Thread {
 	TwoNum tw;

@@ -1,4 +1,4 @@
-package ex;
+package ex15_Thread;
 
 public class AddThread2 extends Thread{
 	Sum sumInst; int start, end;

@@ -208,15 +208,13 @@ public class PhoneBookManager {
 		}
 		else {
 			// index부터 저장된 위치까지 왼쪽으로 쉬프트
-			//for(int i=searchIndex; i<cnt-1; i++)
-			for(int i=searchIndex; i<pBooks.size()-1; i++) {
+			//for(int i=searchIndex; i<cnt-1; i++) {
 				//pBooks[i]=pBooks[i+1];
-				pBooks.remove(i);
+			pBooks.remove(searchIndex);
 			}
 			//cnt-=1;
 			
 			System.out.println("Contact info of "+name+" has been successfully deleted.\n");
-		}
 	}
 	
 	// 6. 배열의 정보를 수정

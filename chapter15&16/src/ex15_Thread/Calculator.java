@@ -1,4 +1,4 @@
-package ex;
+package ex15_Thread;
 
 public class Calculator {
 	// 메소드 실행 횟수 카운트

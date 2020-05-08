@@ -1,4 +1,4 @@
-package ex;
+package ex15_Thread;
 
 public class Increment {
 	int num=0;

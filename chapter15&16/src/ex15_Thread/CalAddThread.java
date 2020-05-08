@@ -1,4 +1,4 @@
-package ex;
+package ex15_Thread;
 
 public class CalAddThread extends Thread {
 	Calculator cal;

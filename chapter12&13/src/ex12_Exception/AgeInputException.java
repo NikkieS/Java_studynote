@@ -1,4 +1,4 @@
-package ex;
+package ex12_Exception;
 
 public class AgeInputException extends Exception {
 
