@@ -19,7 +19,7 @@ public class PhoneBookManager {
 	Scanner sc;
 	
 	// 초기화 생성자
-	private PhoneBookManager(int num) {
+	private PhoneBookManager() {
 		// 배열 초기화
 		//pBooks = new PhoneInfor[100];
 		pBooks = new ArrayList<PhoneInfor>();
@@ -30,7 +30,7 @@ public class PhoneBookManager {
 	}
 	
 	// manager 클래스의 싱글톤 처리
-		private static PhoneBookManager manager = new PhoneBookManager(100);
+		private static PhoneBookManager manager = new PhoneBookManager();
 		
 		public static PhoneBookManager getInstance() {
 			return manager;
