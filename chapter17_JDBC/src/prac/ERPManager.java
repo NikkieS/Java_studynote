@@ -16,24 +16,29 @@ public class ERPManager {
 	static ResultSet rs = null;
 	
 	public static void main(String[] args) {
-		System.out.println("메뉴를 선택하세요.");
-		System.out.println("-----------------------");
-		System.out.println("1. EMP");
-		System.out.println("2. DEPT");
-		System.out.println("-----------------------");
-		
-		int choice = kb.nextInt();
-		
-		switch(choice) {
-		case 1:
-			empManager();
-			break;
-		case 2:
-			deptManager();
-			break;
+		while(true) {
+			System.out.println("메뉴를 선택하세요.");
+			System.out.println("-----------------------");
+			System.out.println("1. EMP");
+			System.out.println("2. DEPT");
+			System.out.println("3. EXIT");
+			System.out.println("-----------------------");
+			
+			int choice = kb.nextInt();
+			
+			switch(choice) {
+			case 1:
+				empManager();
+				break;
+			case 2:
+				deptManager();
+				break;
+			case 3:
+				System.out.println("종료합니다.");
+				return;
+			}
+			kb.close();
 		}
-		
-		kb.close();
 	}
 	
 	private static void empManager() {		
@@ -245,6 +250,7 @@ public class ERPManager {
 			kb.close();
 		}
 	}
+	
 	private static void empDelete() {
 		System.out.println("-----------------------");
 		System.out.println("삭제하실 사원의 이름을 입력해주세요.");
@@ -385,6 +391,7 @@ public class ERPManager {
 			kb.close();
 		}
 	}
+	
 	private static void empSearch() {
 		System.out.println("-----------------------");
 		System.out.println("검색하실 사원의 이름을 입력해주세요.");
@@ -601,7 +608,7 @@ public class ERPManager {
 			conn = DriverManager.getConnection(url, user, pw);
 			
 			//3. SQL 처리
-			String sql = "update dept set deptno = ?, dname = ?, loc = ? where ename = '"+dname+"'";
+			String sql = "update dept set deptno = ?, dname = ?, loc = ? where dname = '"+dname+"'";
 			
 			pstmt = conn.prepareStatement(sql);
 			
@@ -612,7 +619,7 @@ public class ERPManager {
 			int resultCnt = pstmt.executeUpdate();
 			
 			if(resultCnt>0) {
-				System.out.println("사원정보 "+resultCnt + "개가 정상적으로 수정되었습니다.");
+				System.out.println("부서정보 "+resultCnt + "개가 정상적으로 수정되었습니다.");
 			} else {
 				System.out.println(dname+"에 대한 정보를 찾지 못하였습니다. 확인후 재 시도해주세요.");
 			}
@@ -650,12 +657,13 @@ public class ERPManager {
 			kb.close();
 		}
 	}
+	
 	private static void deptDelete() {
 		System.out.println("-----------------------");
-		System.out.println("삭제하실 부서의 이름을 입력해주세요.");
+		System.out.println("삭제하실 부서의 번호를 입력해주세요.");
 		System.out.println("-----------------------");
-		kb.nextLine();
-		String dname = kb.nextLine().toUpperCase();
+		
+		int deptno = kb.nextInt();
 		
 		try {
 			//1. 데이터베이스 드라이버 로드
@@ -670,18 +678,15 @@ public class ERPManager {
 			conn = DriverManager.getConnection(url, user, pw);
 			
 			//3. SQL 처리
-			String sql = "delete from emp where ename = ?";
+			stmt = conn.createStatement();
+			String sql = "delete from dept where deptno ="+deptno;
 			
-
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1,  dname);
-			
-			int resultCnt = pstmt.executeUpdate();
+			int resultCnt = stmt.executeUpdate(sql);
 			
 			if(resultCnt>0) {
-				System.out.println(dname+"의 사원정보가 정상적으로 삭제되었습니다.");
+				System.out.println(deptno+"의 부서정보가 정상적으로 삭제되었습니다.");
 			} else {
-				System.out.println("사원을 찾지 못하였습니다. 확인후 재 시도해주세요.");
+				System.out.println("부서를 찾지 못하였습니다. 확인후 재 시도해주세요.");
 			}
 		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -732,7 +737,7 @@ public class ERPManager {
 			conn = DriverManager.getConnection(url, user, pw);
 			
 			//3. SQL 처리
-			String sql = "select rownum, deptno, dname, loc from dept";
+			String sql = "select rownum, deptno, dname, loc from dept order by deptno asc";
 			
 			stmt = conn.createStatement();
 			
@@ -786,6 +791,7 @@ public class ERPManager {
 			kb.close();
 		}
 	}
+	
 	private static void deptSearch() {
 		System.out.println("-----------------------");
 		System.out.println("검색하실 부서의 이름을 입력해주세요.");
@@ -814,8 +820,8 @@ public class ERPManager {
 			rs = pstmt.executeQuery();
 			int resultCnt = 0;
 			
-			System.out.println("부서번호\t 부서이름\t 위치\t");
-			System.out.println("-----------------------");		
+			System.out.println("부서번호\t 부서이름\t\t  위치\t");
+			System.out.println("----------------------------------");		
 			
 			while(rs.next()) {
 				System.out.printf(rs.getInt("deptno") + "\t");
