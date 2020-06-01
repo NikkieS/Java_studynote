@@ -462,6 +462,403 @@ public class ERPManager {
 	}
 	
 	private static void deptManager() {
+		System.out.println("메뉴를 선택하세요.");
+		System.out.println("-----------------------");
+		System.out.println("1. 입력");
+		System.out.println("2. 수정");
+		System.out.println("3. 삭제");
+		System.out.println("4. 전체 출력");
+		System.out.println("5. 검색");
+		System.out.println("-----------------------");
 		
+		int choice = kb.nextInt();
+		switch(choice) {
+		case 1:
+			deptInsert();
+			break;
+		case 2:
+			deptEdit();
+			break;
+		case 3:
+			deptDelete();
+			break;
+		case 4:
+			deptList();
+			break;
+		case 5:
+			deptSearch();
+			break;
+		}
+	}
+	
+	private static void deptInsert(){	
+		System.out.println("-----------------------");
+		System.out.println("부서 정보를 입력해주세요.");
+		System.out.println("-----------------------");
+		System.out.println("부서 번호");
+		int deptno = kb.nextInt();
+		
+		System.out.println("부서 이름");
+		kb.nextLine();
+		String dname = kb.nextLine().toUpperCase();
+		
+		System.out.println("위치");
+		String loc = kb.nextLine().toUpperCase();
+		
+		try {
+			//1. 데이터베이스 드라이버 로드
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//2. 데이터베이스 연결
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String user = "scott";
+			String pw = "tiger";
+			
+			// Connection 객체 생성
+			conn = DriverManager.getConnection(url, user, pw);
+			
+			//3. SQL 처리
+			String sql = "insert into dept (deptno, dname, loc) "
+					+ " values (?, ?, ?)";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			pstmt.setString(2, dname);
+			pstmt.setString(3, loc);
+			
+			int resultCnt = pstmt.executeUpdate();
+			
+			if(resultCnt>0) {
+				System.out.println(resultCnt + "행이 정상적으로 입력되었습니다.");
+			} else {
+				System.out.println("입력이 되지않았습니다. 확인후 재 시도해주세요.");
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			kb.close();
+		}
+	}
+	
+	private static void deptEdit(){
+		System.out.println("-----------------------");
+		System.out.println("수정하실 부서의 정보를 입력해주세요.");
+		System.out.println("-----------------------");
+		
+		System.out.println("찾으실 부서 이름");
+		kb.nextLine();
+		String dname = kb.nextLine().toUpperCase();
+		
+		System.out.println("수정하실 이름");
+		String editName = kb.nextLine().toUpperCase();
+		
+		System.out.println("부서 번호");
+		int deptno = kb.nextInt();
+		
+		System.out.println("위치");
+		kb.nextLine();
+		String loc = kb.nextLine().toUpperCase();
+		
+		try {
+			//1. 데이터베이스 드라이버 로드
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//2. 데이터베이스 연결
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String user = "scott";
+			String pw = "tiger";
+			
+			// Connection 객체 생성
+			conn = DriverManager.getConnection(url, user, pw);
+			
+			//3. SQL 처리
+			String sql = "update dept set deptno = ?, dname = ?, loc = ? where ename = '"+dname+"'";
+			
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setInt(1, deptno);
+			pstmt.setString(2, dname);
+			pstmt.setString(3, loc);	
+			
+			int resultCnt = pstmt.executeUpdate();
+			
+			if(resultCnt>0) {
+				System.out.println("사원정보 "+resultCnt + "개가 정상적으로 수정되었습니다.");
+			} else {
+				System.out.println(dname+"에 대한 정보를 찾지 못하였습니다. 확인후 재 시도해주세요.");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			kb.close();
+		}
+	}
+	private static void deptDelete() {
+		System.out.println("-----------------------");
+		System.out.println("삭제하실 부서의 이름을 입력해주세요.");
+		System.out.println("-----------------------");
+		kb.nextLine();
+		String dname = kb.nextLine().toUpperCase();
+		
+		try {
+			//1. 데이터베이스 드라이버 로드
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//2. 데이터베이스 연결
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String user = "scott";
+			String pw = "tiger";
+			
+			// Connection 객체 생성
+			conn = DriverManager.getConnection(url, user, pw);
+			
+			//3. SQL 처리
+			String sql = "delete from emp where ename = ?";
+			
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  dname);
+			
+			int resultCnt = pstmt.executeUpdate();
+			
+			if(resultCnt>0) {
+				System.out.println(dname+"의 사원정보가 정상적으로 삭제되었습니다.");
+			} else {
+				System.out.println("사원을 찾지 못하였습니다. 확인후 재 시도해주세요.");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			kb.close();
+		}
+	}
+	
+	private static void deptList() {
+		try {
+			//1. 데이터베이스 드라이버 로드
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//2. 데이터베이스 연결
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String user = "scott";
+			String pw = "tiger";
+			
+			// Connection 객체 생성
+			conn = DriverManager.getConnection(url, user, pw);
+			
+			//3. SQL 처리
+			String sql = "select rownum, deptno, dname, loc from dept";
+			
+			stmt = conn.createStatement();
+			
+			rs = stmt.executeQuery(sql);
+			int resultCnt = 0;
+			
+			System.out.println("번호     부서번호\t     부서이름\t       위치\t");
+			System.out.println("-----------------------------------------");		
+			
+			while(rs.next()) {
+				System.out.print(rs.getInt("rownum") + "\t");
+				System.out.print(rs.getInt("deptno") + "\t");
+				System.out.printf("%11s", rs.getString("dname") + "\t");
+				System.out.printf("%10s", rs.getString("loc") + "\n");
+				resultCnt++;
+			}
+			if(resultCnt<1) {
+				System.out.println("검색 결과가 없습니다.");
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			kb.close();
+		}
+	}
+	private static void deptSearch() {
+		System.out.println("-----------------------");
+		System.out.println("검색하실 부서의 이름을 입력해주세요.");
+		System.out.println("-----------------------");
+		kb.nextLine();
+		String dname = kb.nextLine().toUpperCase();
+		
+		try {
+			//1. 데이터베이스 드라이버 로드
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			//2. 데이터베이스 연결
+			String url = "jdbc:oracle:thin:@localhost:1521:orcl";
+			String user = "scott";
+			String pw = "tiger";
+			
+			// Connection 객체 생성
+			conn = DriverManager.getConnection(url, user, pw);
+			
+			//3. SQL 처리
+			String sql = "select * from dept where dname like '%'||?||'%'";
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,  dname);
+			
+			rs = pstmt.executeQuery();
+			int resultCnt = 0;
+			
+			System.out.println("부서번호\t 부서이름\t 위치\t");
+			System.out.println("-----------------------");		
+			
+			while(rs.next()) {
+				System.out.printf(rs.getInt("deptno") + "\t");
+				System.out.print(rs.getString("dname") + "\t");
+				System.out.print(rs.getString("loc") + "\n");
+				resultCnt++;
+			}
+			if(resultCnt<1) {
+				System.out.println("검색 결과가 없습니다.");
+			}
+			
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if(rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			if(pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			
+			if(conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			}
+			kb.close();
+		}
 	}
 }
