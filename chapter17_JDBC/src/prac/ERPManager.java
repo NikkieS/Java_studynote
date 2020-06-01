@@ -335,13 +335,13 @@ public class ERPManager {
 			int resultCnt = 0;
 			
 			System.out.println("번호\t 이름\t     직급\t\t관리자\t    입사일\t\t급여\t성과금\t부서번호\t");
-			System.out.println("-----------------------------------------------------------------------");		
+			System.out.println("---------------------------------------------------------------------------------");		
 			
 			while(rs.next()) {
 				System.out.print(rs.getInt("rownum") + "\t");
 				System.out.printf("%6s", rs.getString("ename") + "\t");
 				System.out.printf("%9s", rs.getString("job") + "\t");
-				System.out.print(rs.getInt("mgr") + "\t");
+				System.out.printf(rs.getInt("mgr") + "\t");				
 				System.out.print(rs.getString("hiredate").substring(0, 10) + "\t");
 				System.out.print(rs.getInt("sal") + "\t");
 				System.out.print(rs.getInt("comm") + "\t");
@@ -606,7 +606,7 @@ public class ERPManager {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setInt(1, deptno);
-			pstmt.setString(2, dname);
+			pstmt.setString(2, editName);
 			pstmt.setString(3, loc);	
 			
 			int resultCnt = pstmt.executeUpdate();
