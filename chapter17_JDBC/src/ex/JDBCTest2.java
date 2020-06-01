@@ -36,16 +36,16 @@ public class JDBCTest2 {
 			System.out.println("이름을 입력하세요. >>");
 			String searchName = kb.nextLine();
 			
-			String sql = "select * from dept order by deptno";
-			//String sql = "select empno, ename, job from emp order by ename";
-			//String sql1 = "select o.orderid, c.name, b.bookname from customer c, book b, orders o"
-			//		+ "where c.custid=o.custid and b.bookid=o.bookid"
-			//		+ "and c.name ='"+searchName+"'";
+			// String sql = "select * from dept order by deptno";
+			// String sql = "select empno, ename, job from emp order by ename";
+			String sql1 = "select o.orderid, c.name, b.bookname from customer c, book b, orders o "
+					+ " where c.custid=o.custid and b.bookid=o.bookid "
+					+ " and c.name ='"+searchName+"'";
 			
-			//System.out.println("sql : "+sql1);
+			System.out.println("sql : "+sql1);
 			// Select의 결과는 ResultSet이 받는다.
 			// executeQuery(sql문) -> ResultSet
-			rs = stmt.executeQuery(sql);
+			rs = stmt.executeQuery(sql1);
 			
 			// ResultSet : next() -> 행의 존재 유무 확인
 			
@@ -56,16 +56,16 @@ public class JDBCTest2 {
 			System.out.println("-----------------------");
 			
 			while(rs.next()) {
-				System.out.print(rs.getInt("deptno")+"\t");
-				System.out.print(rs.getString("dname")+"\t");
-				System.out.print(rs.getString("loc")+"\n");
+//				System.out.print(rs.getInt("deptno")+"\t");
+//				System.out.print(rs.getString("dname")+"\t");
+//				System.out.print(rs.getString("loc")+"\n");
 //				System.out.print(rs.getString("ename")+"\t");
 //				System.out.print(rs.getString("job")+"\t"+"\t");
 //				System.out.print(rs.getInt("sal")+"\t");
 //				System.out.print(rs.getString("hiredate")+"\n");
-//				System.out.print(rs.getInt(1)+"\t");
-//				System.out.print(rs.getString(2)+"\t");
-//				System.out.print(rs.getString(3)+"\n");
+				System.out.print(rs.getInt(1)+"\t");
+				System.out.print(rs.getString(2)+"\t");
+				System.out.print(rs.getString(3)+"\n");
 			}
 			
 			rs.close();
