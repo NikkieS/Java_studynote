@@ -2,19 +2,18 @@ package phoneBook;
 
 import java.util.List;
 
-public class BasicManager {
-	BasicDao dao = new BasicDao();
+public class UnivManager {
 	
-	private BasicManager() {
-		
-	}
-	private static BasicManager manager = new BasicManager();
+	private UnivManager() {}
+	private static UnivManager manager = new UnivManager();
 	
-	public static BasicManager getInstance() {
+	public static UnivManager getInstance() {
 		return manager;
 	}
-	
-	public void basicManager() {
+
+	BasicDao dao = new BasicDao();
+
+	public void univManager() {
 		System.out.println("메뉴를 선택하세요.");
 		System.out.println("-----------------------");
 		System.out.println("1. 입력");
@@ -27,28 +26,28 @@ public class BasicManager {
 		int choice = MainManager.sc.nextInt();
 		switch(choice) {
 		case 1:
-			basicInsert();
+			univInsert();
 			break;
 		case 2:
-			basicEdit();
+			univEdit();
 			break;
 		case 3:
-			basicDelete();
+			univDelete();
 			break;
 		case 4:
-			basicList();
+			univList();
 			break;
 		case 5:
-			basicSearch();
+			univSearch();
 			break;
 		}
 	}
 
-	private void basicSearch() {
+	private void univSearch() {
 		
 	}
 
-	private void basicList() {
+	private void univList() {
 		List<Basic> list = dao.basicList();
 		
 		if(!list.isEmpty() && list != null) {
@@ -66,17 +65,17 @@ public class BasicManager {
 		}
 	}
 
-	private void basicDelete() {
+	private void univDelete() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void basicEdit() {
+	private void univEdit() {
 		// TODO Auto-generated method stub
 		
 	}
 
-	private void basicInsert() {
+	private void univInsert() {
 		System.out.println("-------------------------");
 		System.out.println("연락처를 입력해주세요.");
 		System.out.println("-------------------------");
@@ -94,10 +93,15 @@ public class BasicManager {
 		System.out.println("이메일 : ");
 		String pemail = MainManager.sc.nextLine();
 		
+		System.out.println("전공 : ");
+		String pumajor = MainManager.sc.nextLine();
+		
+		System.out.println("학년 : ");
+		int puyear = MainManager.sc.nextInt();
+		
 		int resultCnt = 0;
 		
-
-		Basic info = new Basic(dao.getKey(), "basic", pname, pnum, padd, pemail);
+		Basic info = new Univ(dao.getKey(), pname, pnum, padd, pemail, pumajor, puyear);
 		resultCnt = dao.Insert(info);
 		
 		if(resultCnt>0) {
@@ -106,4 +110,5 @@ public class BasicManager {
 			System.out.println("입력이 되지않았습니다. 확인 후 재시도 해주세요.");
 		}
 	}
-}
+	}
+

@@ -6,15 +6,12 @@ public class Cafe extends Basic{
 	
 	public Cafe() {}
 	
-	public Cafe(String pname, String pnum, String pcafename, String pcafenickname) {
-		super(pname, pnum);
+	public Cafe(String pidx, String pname, String pnum, String padd, String pemail, String pcafename, String pcafenickname) {
+		super(pidx, "cafe", pname, pnum, padd, pemail);
 		this.pcafename = pcafename;
 		this.pcafenickname = pcafenickname;
 	}
-	public Cafe(String pcafename, String pcafenickname) {
-		this.pcafename = pcafename;
-		this.pcafenickname = pcafenickname;
-	}
+
 	public String getPcafename() {
 		return pcafename;
 	}

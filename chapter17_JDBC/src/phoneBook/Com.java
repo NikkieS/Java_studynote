@@ -7,14 +7,8 @@ public class Com extends Basic {
 	
 	public Com() {}
 	
-	public Com(String pname, String pnum, String pcomname, String pcomdept, String pcomjob) {
-		super(pname, pnum);
-		this.pcomname = pcomname;
-		this.pcomdept = pcomdept;
-		this.pcomjob = pcomjob;
-	}
-
-	public Com(String pcomname, String pcomdept, String pcomjob) {
+	public Com(String pidx, String pname, String pnum, String padd, String pemail, String pcomname, String pcomdept, String pcomjob) {
+		super(pidx, "com", pname, pnum, padd, pemail);
 		this.pcomname = pcomname;
 		this.pcomdept = pcomdept;
 		this.pcomjob = pcomjob;

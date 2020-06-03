@@ -4,8 +4,14 @@ import java.util.Scanner;
 
 public class MainManager {
 	static Scanner sc = new Scanner(System.in);
-	public static void main(String[] args) {
+	
+	public static void main(String[] args) throws ClassNotFoundException {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
+		
+		BasicManager bManager = BasicManager.getInstance();
+		UnivManager uManager = UnivManager.getInstance();
+		CafeManager cManager = CafeManager.getInstance();
+		ComManager comManager = ComManager.getInstance();
 		
 		while(true) {
 			System.out.println("메뉴를 선택하세요.");
@@ -17,19 +23,23 @@ public class MainManager {
 			System.out.println("5. 종료");
 			System.out.println("-----------------------");
 			
-			int choice = sc.nextInt();
+			int type = sc.nextInt();
 			
-			switch(choice) {
+			switch(type) {
 			case 1:
-				//BasicManager
+				bManager.basicManager();
 				break;
 			case 2 :
+				uManager.univManager();
 				break;
 			case 3:
+				comManager.comManager();
 				break;
 			case 4:
+				cManager.cafeManager();
 				break;
 			case 5:
+				sc.close();
 				return;
 			}
 		}

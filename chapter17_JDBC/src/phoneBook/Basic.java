@@ -1,27 +1,24 @@
 package phoneBook;
 
 public class Basic {
-	private int pidx=0;
+	private String pidx;
 	private String pname;
 	private String pnum;
 	private String padd;
 	private String pemail;
+	private String ptype;
 	
 	public Basic() {}
 	
-	public Basic(String pname, String pnum) {
-		this.pidx = pidx++;
-		this.pname = pname;
-		this.pnum = pnum;
-	}
-	public Basic(String pname, String pnum, String padd, String pemail) {
-		this.pidx = pidx++;
+	public Basic(String pidx, String ptype, String pname, String pnum, String padd, String pemail) {
+		this.pidx = pidx;
+		this.ptype = ptype;
 		this.pname = pname;
 		this.pnum = pnum;
 		this.padd = padd;
 		this.pemail = pemail;
 	}
-	public int getPidx() {
+	public String getPidx() {
 		return pidx;
 	}
 	public String getPname() {
@@ -35,6 +32,10 @@ public class Basic {
 	}
 	public String getPemail() {
 		return pemail;
+	}
+
+	public String getPtype() {
+		return ptype;
 	}
 
 }
